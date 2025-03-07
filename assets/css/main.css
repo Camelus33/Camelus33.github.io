@@ -84,6 +84,116 @@ img {
   transform: translateX(4px);
 }
 
+/* Mobile App Showcase Styles */
+.app-showcase {
+  padding: var(--space-12) 0;
+  text-align: center;
+}
+
+.app-device {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+  transition: transform var(--transition-normal);
+}
+
+.app-device:hover {
+  transform: translateY(-10px);
+}
+
+.app-screenshot {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-lapis-lazuli-light), var(--color-lapis-lazuli));
+  box-shadow: var(--shadow-lg);
+}
+
+.app-screenshot img {
+  transition: transform var(--transition-normal);
+}
+
+.app-screenshot:hover img {
+  transform: scale(1.05);
+}
+
+.app-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.app-feature {
+  padding: var(--space-6);
+  background-color: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.app-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.app-feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-lapis-lazuli-light), var(--color-lapis-lazuli));
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: var(--text-2xl);
+}
+
+.app-timer {
+  position: relative;
+  padding: var(--space-6);
+  background: linear-gradient(135deg, var(--color-ruby-light), var(--color-ruby));
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  margin: var(--space-8) auto;
+  max-width: 300px;
+}
+
+.app-timer-display {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-4);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.app-timer-button {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: var(--text-xl);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.app-timer-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 /* Utilities */
 .animate-on-scroll {
   opacity: 0;

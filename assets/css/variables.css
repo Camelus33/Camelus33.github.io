@@ -1,12 +1,22 @@
 /* Design System Variables */
 :root {
   /* Color Palette */
-  --primary-color: #3a5a78;     /* 짙은 청색 - 신뢰감 */
-  --primary-light: #4e6d8e;
-  --primary-dark: #2a4764;
-  --secondary-color: #f8b400;   /* 따뜻한 노란색 - 창의성 */
-  --secondary-light: #ffc726;
-  --secondary-dark: #e09e00;
+  /* 라피스 라줄리 - 신뢰감과 지혜 */
+  --color-lapis-lazuli: #26619C;
+  --color-lapis-lazuli-light: #3D7AB5;
+  --color-lapis-lazuli-dark: #1A4B7D;
+  
+  /* 루비 - 열정과 에너지 */
+  --color-ruby: #E0115F;
+  --color-ruby-light: #F42C7C;
+  --color-ruby-dark: #B50D4C;
+  
+  --primary-color: var(--color-lapis-lazuli);
+  --primary-light: var(--color-lapis-lazuli-light);
+  --primary-dark: var(--color-lapis-lazuli-dark);
+  --secondary-color: var(--color-ruby);
+  --secondary-light: var(--color-ruby-light);
+  --secondary-dark: var(--color-ruby-dark);
   --accent-color: #5c946e;      /* 녹색 - 성장과 집중 */
   --accent-light: #6fa583;
   --accent-dark: #4a7959;
@@ -32,12 +42,17 @@
   --info: #4299e1;
   
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.15), 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.08);
   --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  --shadow-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  --shadow-outline: 0 0 0 3px rgba(38, 97, 156, 0.3);
+  
+  /* Border Colors */
+  --border-color: #e2e8f0;
+  --border-color-light: #edf2f7;
+  --border-color-dark: #cbd5e0;
   
   /* Spacing */
   --space-1: 0.25rem;  /* 4px */
