@@ -160,11 +160,11 @@ cta_button_url: /contact
       <div class="feature-card animate-on-scroll delay-400">
         <div class="feature-icon"><i class="fas fa-trophy"></i></div>
         <h3 class="feature-title">게임화 및 시즌제</h3>
-        <p class="feature-description">콤보 시스템, 배지, 랭킹, 시즌 챔피언십 등의 게임화 요소를 통해 독서의 재미와 몰입도를 높입니다. 시즌제 운영으로 지속적인 참여를 유도합니다.</p>
+        <p class="feature-description">배지, 랭킹, 시즌 챔피언십 등의 게임화 요소를 통해 독서의 재미와 몰입도를 높입니다. 시즌제 운영으로 지속적인 참여를 유도합니다.</p>
         <ul class="feature-benefits">
-          <li>연속 독서 시 최대 5배 점수 증가 콤보 시스템</li>
           <li>독서 성취에 따른 배지 및 레벨 시스템</li>
           <li>친구들과 함께하는 독서 챌린지</li>
+          <li>시즌별 테마와 보상으로 지속적 동기부여</li>
         </ul>
         <div class="feature-demo">
           <img src="/assets/images/features/gamification.svg" alt="게임화 요소" class="feature-image">
@@ -200,9 +200,9 @@ cta_button_url: /contact
       </div>
       
       <div class="stat-card animate-on-scroll delay-400">
-        <div class="stat-number">5배</div>
-        <div class="stat-label">콤보 시 점수 증가</div>
-        <p class="mt-4">연속 독서 시 점수가 최대 5배까지 증가하는 콤보 시스템을 통해 지속적인 독서를 유도합니다. 이는 장기적인 독서 습관 형성에 효과적입니다.</p>
+        <div class="stat-number">300%</div>
+        <div class="stat-label">집중력 향상</div>
+        <p class="mt-4">특정 장소에서의 GPS 인증과 타이머 시스템을 통해 집중력이 평균 300% 향상됩니다. 이는 독서의 질과 효율성을 크게 높여줍니다.</p>
       </div>
     </div>
   </div>
