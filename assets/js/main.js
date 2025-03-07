@@ -1,29 +1,13 @@
 /* Main JavaScript */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // 모바일 메뉴 토글
-  initMobileMenu();
-  
-  // 스크롤 시 헤더 스타일 변경
-  initScrollHeader();
-  
-  // 스크롤 애니메이션
-  initScrollAnimation();
-  
-  // 스무스 스크롤
-  initSmoothScroll();
-  
-  // 탭 기능 초기화
-  initTabs();
-  
-  // 시나리오 탭 초기화
+  // Initialize components
+  initNavigation();
+  initScrollAnimations();
+  initTimerDemo();
   initScenarioTabs();
   
-  // 카운트다운 타이머 초기화
-  initCountdownTimer();
-  
-  // 독서 타이머 데모 초기화
-  initReadingTimerDemo();
+  // Add any additional initialization here
 });
 
 /**
@@ -79,22 +63,33 @@ function initScrollHeader() {
 /**
  * 스크롤 애니메이션 초기화
  */
-function initScrollAnimation() {
+function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+  if (animatedElements.length === 0) return;
+  
+  // Check if element is in viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+    );
+  }
+  
+  // Show elements that are in viewport
+  function showVisibleElements() {
+    animatedElements.forEach(element => {
+      if (isInViewport(element)) {
+        element.classList.add('visible');
       }
     });
-  }, {
-    threshold: 0.1
-  });
+  }
   
-  animatedElements.forEach(element => {
-    observer.observe(element);
-  });
+  // Initial check
+  showVisibleElements();
+  
+  // Check on scroll
+  window.addEventListener('scroll', showVisibleElements);
 }
 
 /**
@@ -209,22 +204,23 @@ function initTabs() {
 // 시나리오 탭
 function initScenarioTabs() {
   const scenarioTabs = document.querySelectorAll('.scenario-tab');
+  const scenarioPanes = document.querySelectorAll('.scenario-pane');
+  
+  if (scenarioTabs.length === 0) return;
   
   scenarioTabs.forEach(tab => {
     tab.addEventListener('click', function() {
-      // 활성 탭 변경
-      const tabContainer = this.closest('.scenario-tabs');
-      tabContainer.querySelectorAll('.scenario-tab').forEach(t => {
-        t.classList.remove('active');
-      });
+      // Remove active class from all tabs and panes
+      scenarioTabs.forEach(t => t.classList.remove('active'));
+      scenarioPanes.forEach(p => p.classList.remove('active'));
+      
+      // Add active class to clicked tab
       this.classList.add('active');
       
-      // 시나리오 내용 변경
-      const scenarioId = this.getAttribute('data-scenario');
-      tabContainer.querySelectorAll('.scenario-pane').forEach(pane => {
-        pane.classList.remove('active');
-      });
-      tabContainer.querySelector(`#${scenarioId}-scenario`).classList.add('active');
+      // Show corresponding pane
+      const scenario = this.getAttribute('data-scenario');
+      const pane = document.getElementById(`${scenario}-scenario`);
+      if (pane) pane.classList.add('active');
     });
   });
 }
@@ -276,99 +272,155 @@ function initCountdownTimer() {
 }
 
 // 독서 타이머 데모
-function initReadingTimerDemo() {
+function initTimerDemo() {
   const timerDisplay = document.querySelector('.app-timer-display');
   const playButton = document.querySelector('.app-timer-button:nth-child(1)');
   const pauseButton = document.querySelector('.app-timer-button:nth-child(2)');
   const resetButton = document.querySelector('.app-timer-button:nth-child(3)');
-  const modeSwitch = document.querySelectorAll('.timer-mode-switch span');
+  const timerModes = document.querySelectorAll('.timer-mode-switch span');
   
-  if (!timerDisplay || !playButton || !pauseButton || !resetButton) return;
+  if (!timerDisplay) return;
   
-  let timerInterval;
-  let seconds = 660; // 11분 = 660초
+  let timer;
+  let seconds = 660; // 11 minutes
   let isRunning = false;
-  let currentMode = 'reading'; // 'reading' 또는 'memo'
+  let currentMode = 'reading'; // reading or memo
   
-  // 타이머 표시 업데이트
-  function updateTimerDisplay() {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    timerDisplay.textContent = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  // Format time as MM:SS
+  function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   }
   
-  // 타이머 시작
-  playButton.addEventListener('click', function() {
+  // Update timer display
+  function updateDisplay() {
+    timerDisplay.textContent = formatTime(seconds);
+  }
+  
+  // Start timer
+  function startTimer() {
     if (isRunning) return;
     
     isRunning = true;
-    timerInterval = setInterval(function() {
+    timer = setInterval(() => {
       seconds--;
-      updateTimerDisplay();
+      updateDisplay();
       
       if (seconds <= 0) {
-        clearInterval(timerInterval);
+        clearInterval(timer);
         isRunning = false;
         
-        // 독서 모드에서 메모 모드로 전환
+        // Switch to memo mode if in reading mode
         if (currentMode === 'reading') {
-          currentMode = 'memo';
-          seconds = 120; // 2분 = 120초
-          updateTimerDisplay();
-          modeSwitch[0].classList.remove('active');
-          modeSwitch[1].classList.add('active');
-        } else {
-          // 메모 모드 완료
-          currentMode = 'reading';
-          seconds = 660;
-          updateTimerDisplay();
-          modeSwitch[0].classList.add('active');
-          modeSwitch[1].classList.remove('active');
+          switchMode('memo');
         }
       }
     }, 1000);
-  });
+  }
   
-  // 타이머 일시정지
-  pauseButton.addEventListener('click', function() {
-    clearInterval(timerInterval);
+  // Pause timer
+  function pauseTimer() {
+    clearInterval(timer);
     isRunning = false;
-  });
+  }
   
-  // 타이머 리셋
-  resetButton.addEventListener('click', function() {
-    clearInterval(timerInterval);
-    isRunning = false;
+  // Reset timer
+  function resetTimer() {
+    pauseTimer();
+    seconds = currentMode === 'reading' ? 660 : 120; // 11 min or 2 min
+    updateDisplay();
+  }
+  
+  // Switch between reading and memo modes
+  function switchMode(mode) {
+    currentMode = mode;
+    pauseTimer();
     
-    if (currentMode === 'reading') {
-      seconds = 660;
+    if (mode === 'reading') {
+      seconds = 660; // 11 minutes
+      timerModes[0].classList.add('active');
+      timerModes[1].classList.remove('active');
     } else {
-      seconds = 120;
+      seconds = 120; // 2 minutes
+      timerModes[0].classList.remove('active');
+      timerModes[1].classList.add('active');
     }
     
-    updateTimerDisplay();
+    updateDisplay();
+  }
+  
+  // Event listeners
+  if (playButton) playButton.addEventListener('click', startTimer);
+  if (pauseButton) pauseButton.addEventListener('click', pauseTimer);
+  if (resetButton) resetButton.addEventListener('click', resetTimer);
+  
+  // Mode switching
+  timerModes.forEach((mode, index) => {
+    mode.addEventListener('click', () => {
+      switchMode(index === 0 ? 'reading' : 'memo');
+    });
   });
   
-  // 모드 전환
-  modeSwitch.forEach((mode, index) => {
-    mode.addEventListener('click', function() {
-      clearInterval(timerInterval);
-      isRunning = false;
+  // Initial display
+  updateDisplay();
+}
+
+// Page Navigation
+function initNavigation() {
+  const nav = document.getElementById('page-nav');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+  
+  if (!nav) return;
+  
+  // Handle scroll events for sticky navigation
+  window.addEventListener('scroll', function() {
+    // Add scrolled class when page is scrolled
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    
+    // Update active nav link based on scroll position
+    let currentSection = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
       
-      modeSwitch.forEach(m => m.classList.remove('active'));
-      this.classList.add('active');
-      
-      if (index === 0) {
-        // 독서 모드
-        currentMode = 'reading';
-        seconds = 660;
-      } else {
-        // 메모 모드
-        currentMode = 'memo';
-        seconds = 120;
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute('id');
       }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === currentSection) {
+        link.classList.add('active');
+      }
+    });
+  });
+  
+  // Smooth scroll to section when clicking nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
       
-      updateTimerDisplay();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        
+        // Update active class
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+      }
     });
   });
 } 

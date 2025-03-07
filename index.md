@@ -7,6 +7,19 @@ cta_button_text: 앱 출시 알림 신청하기
 cta_button_url: /contact
 ---
 
+<!-- 페이지 내비게이션 -->
+<nav id="page-nav" class="page-navigation">
+  <ul class="nav-list">
+    <li><a href="#hero" class="nav-link active">홈</a></li>
+    <li><a href="#pain-points" class="nav-link">고민 해결</a></li>
+    <li><a href="#features" class="nav-link">핵심 기능</a></li>
+    <li><a href="#stats" class="nav-link">효과</a></li>
+    <li><a href="#scenarios" class="nav-link">사용 시나리오</a></li>
+    <li><a href="#social-proof" class="nav-link">사용자 후기</a></li>
+    <li><a href="#cta" class="nav-link">시작하기</a></li>
+  </ul>
+</nav>
+
 <!-- 1. 임팩트 히어로 섹션 - 즉각적 가치 인식 단계 -->
 <section id="hero" class="hero hero-vercel">
   <div class="hero-vercel-gradient"></div>
@@ -23,7 +36,7 @@ cta_button_url: /contact
         </div>
         <div class="hero-cta">
           <a href="{{ page.cta_button_url }}" class="btn btn-cta">{{ page.cta_button_text }}</a>
-          <a href="/features" class="btn btn-outline btn-primary">기능 살펴보기</a>
+          <a href="#features" class="btn btn-outline btn-primary">기능 살펴보기</a>
         </div>
       </div>
       <div class="hero-image">
@@ -80,91 +93,89 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 3. 서비스 개요 섹션 - 해결책 소개 -->
-<section id="intro" class="section bg-light">
+<!-- 3. 핵심 기능 통합 섹션 -->
+<section id="features" class="section bg-light">
   <div class="container">
-    <div class="two-columns">
-      <div class="animate-on-scroll delay-100">
-        <h2 class="section-title new-style">서비스 개요</h2>
-        <p class="lead">『camelus33』은 독서를 꾸준한 습관으로 만들고 싶은 사용자를 위한 GPS 기반 독서몰입 타이머 앱입니다.</p>
-        <p>도서관과 같은 특정 장소에서 GPS 위치 인증을 통해 점수를 부여하며, 제텔카스텐 독서 메모법과 게임화를 통해 독서 습관을 체계적으로 형성할 수 있도록 지원합니다.</p>
-        <div class="feature-highlights">
-          <div class="feature-highlight">
-            <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="feature-text">GPS 위치 인증</div>
-          </div>
-          <div class="feature-highlight">
-            <div class="feature-icon"><i class="fas fa-clock"></i></div>
-            <div class="feature-text">11+2분 타이머</div>
-          </div>
-          <div class="feature-highlight">
-            <div class="feature-icon"><i class="fas fa-book"></i></div>
-            <div class="feature-text">제텔카스텐 메모</div>
-          </div>
-          <div class="feature-highlight">
-            <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-            <div class="feature-text">게임화 요소</div>
-          </div>
-        </div>
-      </div>
-      <div class="animate-on-scroll delay-300">
-        <div class="app-device">
-          <img src="/assets/images/hero/app-mockup.svg" alt="Camelus33 앱 목업" class="app-screenshot">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. 핵심 기능 시연 섹션 - 사용 용이성 평가 단계 -->
-<section id="core-features" class="section">
-  <div class="container">
-    <h2 class="section-title new-style">이렇게 간단합니다</h2>
-    <p class="lead text-center mb-8">복잡한 설정 없이 바로 시작하는 독서 습관</p>
+    <h2 class="section-title new-style">Camelus33의 핵심 기능</h2>
+    <p class="lead text-center mb-8">독서 습관을 형성하는 4가지 핵심 기술</p>
     
-    <div class="feature-tabs">
-      <div class="tab-navigation">
-        <button class="tab-button active" data-tab="timer">독서 타이머</button>
-        <button class="tab-button" data-tab="gps">GPS 인증</button>
-        <button class="tab-button" data-tab="memo">메모 시스템</button>
+    <div class="feature-cards">
+      <!-- GPS 인증 기능 -->
+      <div class="feature-card animate-on-scroll delay-100">
+        <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3 class="feature-title">GPS 위치 인증</h3>
+        <p class="feature-description">도서관과 같은 특정 장소에서 독서할 때 GPS 인증을 통해 2배 포인트를 획득하세요. 장소의 힘을 활용해 독서에 최적화된 환경을 조성합니다.</p>
+        <ul class="feature-benefits">
+          <li>집중력 향상을 위한 장소 기반 독서</li>
+          <li>도서관, 카페 등 독서 친화적 장소 인증</li>
+          <li>위치별 차등 보상 시스템</li>
+        </ul>
+        <div class="feature-demo">
+          <img src="/assets/images/features/gps-auth.svg" alt="GPS 인증 기능" class="feature-image">
+        </div>
       </div>
       
-      <div class="tab-content">
-        <div class="tab-pane active" id="timer-tab">
-          <div class="two-columns">
-            <div class="feature-description">
-              <h3 class="new-style">11+2분 집중 시스템</h3>
-              <p>11분 독서 + 2분 메모의 과학적으로 검증된 사이클로 최적의 집중력과 기억력 향상</p>
-              <ul class="feature-benefits">
-                <li>집중력 300% 향상</li>
-                <li>기억 정착률 80% 달성</li>
-                <li>하루 3-4회만으로 효과적인 독서량 확보</li>
-              </ul>
+      <!-- 11+2분 타이머 시스템 -->
+      <div class="feature-card animate-on-scroll delay-200">
+        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+        <h3 class="feature-title">11+2분 타이머 시스템</h3>
+        <p class="feature-description">과학적으로 검증된 11분 독서 + 2분 메모 사이클로 최적의 집중력과 기억력을 향상시킵니다. 짧고 효과적인 세션으로 지속 가능한 독서 습관을 형성하세요.</p>
+        <ul class="feature-benefits">
+          <li>집중력 300% 향상 효과</li>
+          <li>기억 정착률 80% 달성</li>
+          <li>하루 3-4회만으로 효과적인 독서량 확보</li>
+        </ul>
+        <div class="feature-demo">
+          <div class="app-timer interactive">
+            <div class="app-timer-display">11:00</div>
+            <div class="app-timer-controls">
+              <button class="app-timer-button"><i class="fas fa-play"></i></button>
+              <button class="app-timer-button"><i class="fas fa-pause"></i></button>
+              <button class="app-timer-button"><i class="fas fa-redo"></i></button>
             </div>
-            
-            <div class="feature-demo">
-              <div class="app-timer interactive">
-                <div class="app-timer-display">11:00</div>
-                <div class="app-timer-controls">
-                  <button class="app-timer-button"><i class="fas fa-play"></i></button>
-                  <button class="app-timer-button"><i class="fas fa-pause"></i></button>
-                  <button class="app-timer-button"><i class="fas fa-redo"></i></button>
-                </div>
-                <div class="timer-mode-switch">
-                  <span class="active">독서 모드</span>
-                  <span>메모 모드</span>
-                </div>
-              </div>
+            <div class="timer-mode-switch">
+              <span class="active">독서 모드</span>
+              <span>메모 모드</span>
             </div>
           </div>
+        </div>
+      </div>
+      
+      <!-- 제텔카스텐 메모 시스템 -->
+      <div class="feature-card animate-on-scroll delay-300">
+        <div class="feature-icon"><i class="fas fa-book"></i></div>
+        <h3 class="feature-title">제텔카스텐 메모 시스템</h3>
+        <p class="feature-description">니클라스 루만의 제텔카스텐 메모법을 디지털화하여 지식의 연결과 재발견을 촉진합니다. 각 메모는 고유 ID를 가지며 상호 연결되어 지식 네트워크를 구축합니다.</p>
+        <ul class="feature-benefits">
+          <li>지식의 구조적 저장 및 연결</li>
+          <li>아이디어 간 연결을 통한 창의성 향상</li>
+          <li>장기 기억 정착을 위한 최적화된 시스템</li>
+        </ul>
+        <div class="feature-demo">
+          <img src="/assets/images/features/zettelkasten.svg" alt="제텔카스텐 메모 시스템" class="feature-image">
+        </div>
+      </div>
+      
+      <!-- 게임화 요소 -->
+      <div class="feature-card animate-on-scroll delay-400">
+        <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+        <h3 class="feature-title">게임화 및 시즌제</h3>
+        <p class="feature-description">콤보 시스템, 배지, 랭킹, 시즌 챔피언십 등의 게임화 요소를 통해 독서의 재미와 몰입도를 높입니다. 시즌제 운영으로 지속적인 참여를 유도합니다.</p>
+        <ul class="feature-benefits">
+          <li>연속 독서 시 최대 5배 점수 증가 콤보 시스템</li>
+          <li>독서 성취에 따른 배지 및 레벨 시스템</li>
+          <li>친구들과 함께하는 독서 챌린지</li>
+        </ul>
+        <div class="feature-demo">
+          <img src="/assets/images/features/gamification.svg" alt="게임화 요소" class="feature-image">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. 앱 효과 섹션 - 신뢰성 검증 단계 -->
-<section id="stats" class="section bg-light">
+<!-- 4. 앱 효과 섹션 - 신뢰성 검증 단계 -->
+<section id="stats" class="section">
   <div class="container">
     <h2 class="section-title new-style">과학적으로 검증된 효과</h2>
     <p class="lead text-center mb-12">Camelus33는 과학적 연구를 기반으로 설계되어 효과적인 독서 습관 형성을 돕습니다</p>
@@ -197,8 +208,8 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 6. 사용 시나리오 섹션 - 가치 대비 비용 계산 단계 -->
-<section id="scenarios" class="section">
+<!-- 5. 사용 시나리오 섹션 - 가치 대비 비용 계산 단계 -->
+<section id="scenarios" class="section bg-light">
   <div class="container">
     <h2 class="section-title new-style">당신의 일상에 맞게 사용하세요</h2>
     
@@ -243,8 +254,8 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 7. 사회적 증명 섹션 - 신뢰 구축 -->
-<section id="social-proof" class="section bg-light">
+<!-- 6. 사회적 증명 섹션 - 신뢰 구축 -->
+<section id="social-proof" class="section">
   <div class="container">
     <h2 class="section-title new-style">실제 사용자들의 변화</h2>
     
@@ -302,47 +313,7 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 8. 핵심 가치 섹션 - 철학과 차별점 -->
-<section id="values" class="section">
-  <div class="container">
-    <div class="animate-on-scroll">
-      <h2 class="section-title new-style">핵심 가치</h2>
-      <p class="lead text-center mb-12">Camelus33는 다음과 같은 핵심 가치를 바탕으로 설계되었습니다</p>
-    </div>
-    
-    <div class="grid grid-cols-2 gap-8">
-      <div class="card animate-on-scroll delay-100">
-        <div class="card-body">
-          <h3 class="new-style"><span class="highlight-primary">GPS 인증</span>을 통한 장소기반 독서 습관 형성 촉진</h3>
-          <p class="card-text">특정 장소에서의 독서는 집중도를 높이고 의도적인 독서 시간을 확보하게 합니다. GPS 인증을 통해 이러한 환경에서의 독서를 장려하고 보상합니다.</p>
-        </div>
-      </div>
-      
-      <div class="card animate-on-scroll delay-200">
-        <div class="card-body">
-          <h3 class="new-style"><span class="highlight-secondary">제텔카스텐 독서 메모</span>로 효율적이고 구조적인 지식 관리</h3>
-          <p class="card-text">니클라스 루만의 제텔카스텐 메모법을 디지털화하여 지식의 연결과 재발견을 촉진합니다. 각 메모는 고유 ID를 가지며 상호 연결될 수 있습니다.</p>
-        </div>
-      </div>
-      
-      <div class="card animate-on-scroll delay-300">
-        <div class="card-body">
-          <h3 class="new-style"><span class="highlight-primary">데이터 주권</span>과 프라이버시를 보호하는 데이터 관리 전략</h3>
-          <p class="card-text">사용자의 독서 데이터는 기본적으로 로컬에 저장되며, 필요한 최소한의 데이터만 암호화하여 서버에 저장합니다. 사용자는 언제든 자신의 데이터를 완전히 통제할 수 있습니다.</p>
-        </div>
-      </div>
-      
-      <div class="card animate-on-scroll delay-400">
-        <div class="card-body">
-          <h3 class="new-style"><span class="highlight-secondary">게임화 및 시즌제</span> 운영을 통한 지속 가능한 독서 습관 형성</h3>
-          <p class="card-text">콤보 시스템, 배지, 랭킹, 시즌 챔피언십 등의 게임화 요소를 통해 독서의 재미와 몰입도를 높입니다. 시즌제 운영으로 지속적인 참여를 유도합니다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9. 혜택 요약 및 행동 유도 섹션 - 최종 행동 유도 -->
+<!-- 7. 혜택 요약 및 행동 유도 섹션 - 최종 행동 유도 -->
 <section id="cta" class="section bg-primary">
   <div class="container text-center">
     <span class="limited-offer-badge">선착순 100명 한정</span>
