@@ -1,0 +1,377 @@
+/* 기본 테이블 스타일 */
+.table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  border-collapse: collapse;
+  font-size: var(--font-size-base);
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid var(--color-border);
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--color-border);
+  font-weight: 600;
+  color: var(--color-text-dark);
+  background-color: var(--color-background-alt);
+  text-align: left;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid var(--color-border);
+}
+
+/* 테이블 변형 */
+.table-sm th,
+.table-sm td {
+  padding: 0.3rem;
+}
+
+.table-bordered {
+  border: 1px solid var(--color-border);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid var(--color-border);
+}
+
+.table-borderless th,
+.table-borderless td,
+.table-borderless thead th,
+.table-borderless tbody + tbody {
+  border: 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 테이블 행 색상 */
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: var(--color-primary-light);
+}
+
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: var(--color-secondary-light);
+}
+
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: var(--color-success-light);
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: var(--color-error-light);
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: var(--color-warning-light);
+}
+
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: var(--color-info-light);
+}
+
+/* 테이블 헤드 색상 */
+.table-dark {
+  color: var(--color-white);
+  background-color: var(--color-text-dark);
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  border-color: var(--color-text-dark);
+}
+
+.table-dark.table-bordered {
+  border: 0;
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* 반응형 테이블 */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive > .table {
+  margin-bottom: 0;
+}
+
+/* 미디어 쿼리별 반응형 테이블 */
+@media (max-width: 576px) {
+  .table-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 992px) {
+  .table-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 1200px) {
+  .table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* 모바일용 카드 테이블 */
+@media (max-width: 768px) {
+  .table-mobile-card {
+    border: none;
+  }
+  
+  .table-mobile-card thead {
+    display: none;
+  }
+  
+  .table-mobile-card tbody {
+    display: block;
+  }
+  
+  .table-mobile-card tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .table-mobile-card tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: none;
+    border-bottom: 1px solid var(--color-border-light);
+    padding: 0.75rem 1rem;
+    text-align: right;
+  }
+  
+  .table-mobile-card tbody td:last-child {
+    border-bottom: none;
+  }
+  
+  .table-mobile-card tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: auto;
+    text-align: left;
+    color: var(--color-text-dark);
+  }
+}
+
+/* 스택 테이블 (모바일) */
+@media (max-width: 768px) {
+  .table-stack {
+    display: block;
+  }
+  
+  .table-stack thead {
+    display: none;
+  }
+  
+  .table-stack tbody {
+    display: block;
+  }
+  
+  .table-stack tr {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+  
+  .table-stack td {
+    display: block;
+    text-align: right;
+    padding: 0.5rem 1rem;
+    border-top: none;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  
+  .table-stack td:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .table-stack td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+}
+
+/* 접근성 향상 */
+.table caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  caption-side: bottom;
+  color: var(--color-text-light);
+  text-align: left;
+  font-size: var(--font-size-sm);
+}
+
+.table:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 정렬 컨트롤 */
+.table th.sortable {
+  cursor: pointer;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.table th.sortable::after {
+  content: "↕";
+  position: absolute;
+  right: 0.5rem;
+  color: var(--color-text-light);
+  opacity: 0.5;
+}
+
+.table th.sortable.asc::after {
+  content: "↑";
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.table th.sortable.desc::after {
+  content: "↓";
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+/* 페이징 컨트롤 */
+.table-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+
+.table-pagination-info {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+}
+
+.table-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.table-pagination-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.table-pagination-button:hover {
+  background-color: var(--color-background-alt);
+}
+
+.table-pagination-button.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.table-pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 고정 헤더 */
+.table-fixed-header {
+  position: relative;
+  overflow: auto;
+  max-height: 500px;
+}
+
+.table-fixed-header thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--color-background-alt);
+}
+
+/* 무한 스크롤 로딩 */
+.table-loading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--color-primary) 0%, 
+    var(--color-secondary) 50%, 
+    var(--color-primary) 100%);
+  background-size: 200% 100%;
+  animation: loading-gradient 1.5s ease infinite;
+}
+
+@keyframes loading-gradient {
+  0% { background-position: 0% 0; }
+  100% { background-position: -200% 0; }
+} 
