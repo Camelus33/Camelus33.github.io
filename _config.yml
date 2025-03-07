@@ -1,0 +1,41 @@
+title: Camelus33
+description: GPS 기반 독서몰입 타이머 앱 - 장소 인증과 제텔카스텐 메모법으로 독서 습관 형성
+baseurl: ""
+url: "https://camelus33.github.io"
+github_username: Camelus33
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Custom settings
+author: Camelus33 Team
+logo: /assets/images/logo.png
+lang: ko-KR
+
+# Collections
+collections:
+  features:
+    output: true
+    permalink: /:collection/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Camelus33 Team"
+  - scope:
+      path: ""
+      type: "features"
+    values:
+      layout: "feature"
+  - scope:
+      path: ""
+    values:
+      layout: "default" 

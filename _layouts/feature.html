@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="feature">
+  <div class="container">
+    <header class="feature-header">
+      <div class="feature-icon">
+        <i class="fas {{ page.icon }}"></i>
+      </div>
+      <h1 class="feature-title">{{ page.title }}</h1>
+      <p class="feature-description">{{ page.description }}</p>
+    </header>
+
+    {% if page.image %}
+    <div class="feature-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="feature-content">
+      {{ content }}
+    </div>
+
+    <div class="feature-navigation">
+      <a href="/" class="back-button"><i class="fas fa-arrow-left"></i> 홈으로 돌아가기</a>
+    </div>
+  </div>
+</article> 

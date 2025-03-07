@@ -1,0 +1,30 @@
+# Jekyll build files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler files
+.bundle/
+vendor/
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Log files
+*.log
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo 

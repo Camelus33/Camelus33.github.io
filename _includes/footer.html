@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
+        <h3>{{ site.title }}</h3>
+        <p>{{ site.description }}</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>사이트맵</h4>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">홈</a></li>
+            <li><a href="{{ '/features' | relative_url }}">기능</a></li>
+            <li><a href="{{ '/blog' | relative_url }}">블로그</a></li>
+            <li><a href="{{ '/about' | relative_url }}">소개</a></li>
+            <li><a href="{{ '/contact' | relative_url }}">문의</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>주요 기능</h4>
+          <ul>
+            <li><a href="{{ '/features/gps-tracking' | relative_url }}">GPS 위치 인증</a></li>
+            <li><a href="{{ '/features/reading-loop' | relative_url }}">리딩루프 시스템</a></li>
+            <li><a href="{{ '/features/combo-system' | relative_url }}">콤보 시스템</a></li>
+            <li><a href="{{ '/features/reading-board' | relative_url }}">상세 리딩보드</a></li>
+            <li><a href="{{ '/features/weekly-report' | relative_url }}">주간 이메일 리포트</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>소셜 미디어</h4>
+          <div class="social-links">
+            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer> 
