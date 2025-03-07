@@ -1,0 +1,90 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" rx="20" fill="#F8F9FA"/>
+  
+  <!-- Title -->
+  <text x="40" y="50" font-family="Montserrat, sans-serif" font-size="24" font-weight="bold" fill="#3A5A78">콤보 시스템</text>
+  <text x="40" y="75" font-family="Montserrat, sans-serif" font-size="16" fill="#4A5568">연속 독서를 통한 점수 보상 시스템</text>
+  
+  <!-- Combo Line -->
+  <line x1="40" y1="180" x2="560" y2="180" stroke="#E2E8F0" stroke-width="2"/>
+  
+  <!-- Combo Points -->
+  <g transform="translate(80, 180)">
+    <circle cx="0" cy="0" r="15" fill="#3A5A78"/>
+    <text x="-5" y="5" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">1</text>
+    <text x="-15" y="35" font-family="Montserrat, sans-serif" font-size="14" fill="#3A5A78">17점</text>
+  </g>
+  
+  <g transform="translate(160, 180)">
+    <circle cx="0" cy="0" r="20" fill="#3A5A78"/>
+    <text x="-5" y="5" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">2</text>
+    <text x="-15" y="35" font-family="Montserrat, sans-serif" font-size="14" fill="#3A5A78">24점</text>
+  </g>
+  
+  <g transform="translate(240, 180)">
+    <circle cx="0" cy="0" r="25" fill="#3A5A78"/>
+    <text x="-5" y="5" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">3</text>
+    <text x="-15" y="35" font-family="Montserrat, sans-serif" font-size="14" fill="#3A5A78">32점</text>
+  </g>
+  
+  <g transform="translate(320, 180)">
+    <circle cx="0" cy="0" r="30" fill="#F8B400"/>
+    <text x="-5" y="5" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">4</text>
+    <text x="-15" y="45" font-family="Montserrat, sans-serif" font-size="14" fill="#F8B400">40점</text>
+  </g>
+  
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="35" fill="#F8B400"/>
+    <text x="-5" y="5" font-family="Montserrat, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">5</text>
+    <text x="-15" y="50" font-family="Montserrat, sans-serif" font-size="14" fill="#F8B400">55점</text>
+  </g>
+  
+  <g transform="translate(500, 180)">
+    <circle cx="0" cy="0" r="45" fill="#F8B400"/>
+    <text x="-14" y="5" font-family="Montserrat, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">10</text>
+    <text x="-15" y="60" font-family="Montserrat, sans-serif" font-size="14" fill="#F8B400">92점</text>
+  </g>
+  
+  <!-- Arrows -->
+  <path d="M100 180 L140 180" stroke="#3A5A78" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M180 180 L220 180" stroke="#3A5A78" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M260 180 L300 180" stroke="#3A5A78" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M340 180 L380 180" stroke="#F8B400" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M430 180 L455 180" stroke="#F8B400" stroke-width="2"/>
+  <text x="460" y="180" font-family="Montserrat, sans-serif" font-size="20" fill="#F8B400">...</text>
+  
+  <!-- Arrowhead Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3A5A78"/>
+    </marker>
+  </defs>
+  
+  <!-- Combo Explanation -->
+  <rect x="40" y="250" width="520" height="120" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  
+  <text x="60" y="280" font-family="Montserrat, sans-serif" font-size="16" font-weight="bold" fill="#3A5A78">콤보 시스템 작동 원리</text>
+  
+  <g transform="translate(60, 300)">
+    <circle cx="0" cy="0" r="8" fill="#3A5A78"/>
+    <text x="20" y="5" font-family="Montserrat, sans-serif" font-size="14" fill="#4A5568">기본 점수: 리딩루프 1회 완료 시 17점 획득</text>
+  </g>
+  
+  <g transform="translate(60, 330)">
+    <circle cx="0" cy="0" r="8" fill="#F8B400"/>
+    <text x="20" y="5" font-family="Montserrat, sans-serif" font-size="14" fill="#4A5568">콤보 보너스: +5점 × 콤보수의 1.5배</text>
+  </g>
+  
+  <g transform="translate(60, 360)">
+    <circle cx="0" cy="0" r="8" fill="#5C946E"/>
+    <text x="20" y="5" font-family="Montserrat, sans-serif" font-size="14" fill="#4A5568">루프 종료 직후 다음 루프를 바로 시작하면 콤보 1 증가</text>
+  </g>
+  
+  <!-- Fire Badge -->
+  <g transform="translate(500, 50)">
+    <circle cx="0" cy="0" r="30" fill="#F8B400" fill-opacity="0.1"/>
+    <path d="M-5 -20 Q-10 -10 -5 -5 Q-15 5 -10 15 Q-5 10 0 20 Q5 10 10 15 Q15 0 10 -5 Q5 -15 -5 -20" fill="#F8B400" stroke="#F8B400" stroke-width="1.5"/>
+    <text x="-25" y="35" font-family="Montserrat, sans-serif" font-size="12" font-weight="bold" fill="#F8B400">COMBO</text>
+  </g>
+</svg> 

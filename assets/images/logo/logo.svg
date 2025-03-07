@@ -1,0 +1,21 @@
+<svg width="180" height="50" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 도형 (낙타 형상을 추상화) -->
+  <path d="M45 15C45 6.716 36.284 0 25.5 0H5C2.239 0 0 2.239 0 5V45C0 47.761 2.239 50 5 50H25.5C36.284 50 45 43.284 45 35V15Z" fill="#3A5A78"/>
+  
+  <!-- 낙타 아이콘 (간략화) -->
+  <path d="M28 14.5C26.5 10 23 10 21.5 10C20 10 16.5 10 15 14.5C14.5 16 14 18 14 20C14 22 14.5 24 15 25.5C15.5 27 16.5 28 17.5 28.5C18 28.8 19 29 20 29C20.8 29 22 28.5 22 27C22 26 21.5 25.5 21 25.5C20.5 25.5 20 26 20 26.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M25.5 29C25.5 29 26.2 28.8 26.5 28.5C27.5 28 28.5 27 29 25.5C29.5 24 30 22 30 20C30 18 29.5 16 29 14.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 책 아이콘 -->
+  <rect x="18" y="32" width="10" height="8" rx="1" stroke="white" stroke-width="2"/>
+  <line x1="23" y1="32" x2="23" y2="40" stroke="white" stroke-width="2"/>
+  
+  <!-- 타이머 초침 -->
+  <circle cx="35" cy="22" r="5" stroke="white" stroke-width="2"/>
+  <line x1="35" y1="22" x2="35" y2="18" stroke="white" stroke-width="2"/>
+  <line x1="35" y1="22" x2="38" y2="22" stroke="white" stroke-width="2"/>
+  
+  <!-- 텍스트 부분 -->
+  <text x="55" y="30" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#3A5A78">Camelus</text>
+  <text x="135" y="30" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#F8B400">33</text>
+</svg> 

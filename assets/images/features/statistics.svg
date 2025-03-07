@@ -1,0 +1,170 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="600" height="400" rx="20" fill="#F8F9FA"/>
+  
+  <!-- 제목 영역 -->
+  <text x="300" y="50" font-family="Montserrat, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#3A5A78">독서 통계</text>
+  <text x="300" y="80" font-family="Noto Sans KR, sans-serif" font-size="16" text-anchor="middle" fill="#6C757D">데이터 기반 독서 습관 분석 시스템</text>
+
+  <!-- 그래프 영역 (왼쪽) -->
+  <g transform="translate(50, 120)">
+    <!-- 막대 그래프 -->
+    <rect x="0" y="0" width="240" height="180" rx="10" fill="#FFFFFF" stroke="#DDE2E5" stroke-width="1"/>
+    
+    <!-- 그래프 타이틀 -->
+    <text x="20" y="25" font-family="Noto Sans KR, sans-serif" font-size="14" font-weight="700" fill="#3A5A78">주간 독서 시간</text>
+    
+    <!-- X축 -->
+    <line x1="40" y1="150" x2="220" y2="150" stroke="#DDE2E5" stroke-width="1"/>
+    <text x="50" y="165" font-family="Montserrat, sans-serif" font-size="10" fill="#6C757D">월</text>
+    <text x="80" y="165" font-family="Montserrat, sans-serif" font-size="10" fill="#6C757D">화</text>
+    <text x="110" y="165" font-family="Montserrat, sans-serif" font-size="10" fill="#6C757D">수</text>
+    <text x="140" y="165" font-family="Montserrat, sans-serif" font-size="10" fill="#6C757D">목</text>
+    <text x="170" y="165" font-family="Montserrat, sans-serif" font-size="10" fill="#6C757D">금</text>
+    <text x="200" y="165" font-family="Montserrat, sans-serif" font-size="10" fill="#6C757D">토</text>
+    
+    <!-- 막대 -->
+    <rect x="45" y="100" width="15" height="50" fill="#3A5A78" rx="2"/>
+    <rect x="75" y="80" width="15" height="70" fill="#3A5A78" rx="2"/>
+    <rect x="105" y="60" width="15" height="90" fill="#3A5A78" rx="2"/>
+    <rect x="135" y="110" width="15" height="40" fill="#3A5A78" rx="2"/>
+    <rect x="165" y="90" width="15" height="60" fill="#3A5A78" rx="2"/>
+    <rect x="195" y="50" width="15" height="100" fill="#F8B400" rx="2"/>
+    
+    <!-- 범례 -->
+    <circle cx="50" cy="180" r="5" fill="#F8B400"/>
+    <text x="60" y="184" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">최고 기록</text>
+  </g>
+  
+  <!-- 원형 그래프 (오른쪽 상단) -->
+  <g transform="translate(330, 120)">
+    <rect x="0" y="0" width="220" height="180" rx="10" fill="#FFFFFF" stroke="#DDE2E5" stroke-width="1"/>
+    
+    <!-- 그래프 타이틀 -->
+    <text x="20" y="25" font-family="Noto Sans KR, sans-serif" font-size="14" font-weight="700" fill="#3A5A78">독서 장르 분포</text>
+    
+    <!-- 원형 그래프 -->
+    <circle cx="110" cy="100" r="60" fill="none" stroke="#DDE2E5" stroke-width="1"/>
+    
+    <!-- 원형 그래프 섹션 -->
+    <path d="M110 100 L110 40 A60 60 0 0 1 164 130 Z" fill="#3A5A78"/>
+    <path d="M110 100 L164 130 A60 60 0 0 1 80 156 Z" fill="#5D89B3"/>
+    <path d="M110 100 L80 156 A60 60 0 0 1 56 70 Z" fill="#F8B400"/>
+    <path d="M110 100 L56 70 A60 60 0 0 1 110 40 Z" fill="#FFD166"/>
+    
+    <!-- 범례 -->
+    <g transform="translate(20, 170)">
+      <rect x="0" y="-10" width="10" height="10" fill="#3A5A78"/>
+      <text x="15" y="0" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">소설 40%</text>
+      
+      <rect x="80" y="-10" width="10" height="10" fill="#5D89B3"/>
+      <text x="95" y="0" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">자기계발 30%</text>
+      
+      <rect x="160" y="-10" width="10" height="10" fill="#F8B400"/>
+      <text x="175" y="0" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">과학 20%</text>
+    </g>
+  </g>
+  
+  <!-- 통계 카드 (하단) -->
+  <g transform="translate(100, 320)">
+    <rect x="0" y="0" width="400" height="60" rx="10" fill="#3A5A78"/>
+    
+    <!-- 통계 항목 1 -->
+    <g transform="translate(30, 30)">
+      <text x="0" y="0" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#FFFFFF">42</text>
+      <text x="0" y="20" font-family="Noto Sans KR, sans-serif" font-size="12" text-anchor="middle" fill="#FFFFFF">총 독서일</text>
+    </g>
+    
+    <!-- 구분선 -->
+    <line x1="100" y1="15" x2="100" y2="45" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.3"/>
+    
+    <!-- 통계 항목 2 -->
+    <g transform="translate(160, 30)">
+      <text x="0" y="0" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#FFFFFF">12.5</text>
+      <text x="0" y="20" font-family="Noto Sans KR, sans-serif" font-size="12" text-anchor="middle" fill="#FFFFFF">주간 평균 시간</text>
+    </g>
+    
+    <!-- 구분선 -->
+    <line x1="230" y1="15" x2="230" y2="45" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.3"/>
+    
+    <!-- 통계 항목 3 -->
+    <g transform="translate(300, 30)">
+      <text x="0" y="0" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#FFFFFF">8</text>
+      <text x="0" y="20" font-family="Noto Sans KR, sans-serif" font-size="12" text-anchor="middle" fill="#FFFFFF">최대 콤보</text>
+    </g>
+  </g>
+  
+  <!-- 라인 차트 (오른쪽 중단) -->
+  <g transform="translate(330, 200)">
+    <rect x="0" y="30" width="220" height="70" rx="10" fill="#F8B400" fill-opacity="0.1"/>
+    
+    <!-- 그래프 타이틀 -->
+    <text x="20" y="25" font-family="Noto Sans KR, sans-serif" font-size="14" font-weight="700" fill="#3A5A78">월간 페이지 완독 추이</text>
+    
+    <!-- 라인 차트 -->
+    <polyline points="20,80 50,60 80,70 110,40 140,50 170,30 200,45" fill="none" stroke="#F8B400" stroke-width="3"/>
+    
+    <!-- 포인트 -->
+    <circle cx="20" cy="80" r="4" fill="#F8B400"/>
+    <circle cx="50" cy="60" r="4" fill="#F8B400"/>
+    <circle cx="80" cy="70" r="4" fill="#F8B400"/>
+    <circle cx="110" cy="40" r="4" fill="#F8B400"/>
+    <circle cx="140" cy="50" r="4" fill="#F8B400"/>
+    <circle cx="170" cy="30" r="4" fill="#F8B400"/>
+    <circle cx="200" cy="45" r="4" fill="#F8B400"/>
+  </g>
+  
+  <!-- 날짜 트래커 (왼쪽 중단) -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="30" width="240" height="70" rx="10" fill="#3A5A78" fill-opacity="0.1"/>
+    
+    <!-- 타이틀 -->
+    <text x="20" y="25" font-family="Noto Sans KR, sans-serif" font-size="14" font-weight="700" fill="#3A5A78">독서 습관 트래커</text>
+    
+    <!-- 캘린더 그리드 -->
+    <g transform="translate(20, 45)">
+      <g transform="translate(0, 0)">
+        <rect width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="25" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="50" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="75" width="20" height="20" rx="2" fill="#DDE2E5"/>
+        <rect x="100" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="125" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="150" width="20" height="20" rx="2" fill="#3A5A78"/>
+      </g>
+      <g transform="translate(0, 25)">
+        <rect width="20" height="20" rx="2" fill="#DDE2E5"/>
+        <rect x="25" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="50" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="75" width="20" height="20" rx="2" fill="#3A5A78"/>
+        <rect x="100" width="20" height="20" rx="2" fill="#F8B400"/>
+        <rect x="125" width="20" height="20" rx="2" fill="#DDE2E5"/>
+        <rect x="150" width="20" height="20" rx="2" fill="#DDE2E5"/>
+      </g>
+    </g>
+    
+    <!-- 범례 -->
+    <g transform="translate(20, 95)">
+      <rect width="10" height="10" rx="1" fill="#3A5A78"/>
+      <text x="15" y="9" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">독서일</text>
+      
+      <rect x="60" width="10" height="10" rx="1" fill="#F8B400"/>
+      <text x="75" y="9" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">오늘</text>
+      
+      <rect x="120" width="10" height="10" rx="1" fill="#DDE2E5"/>
+      <text x="135" y="9" font-family="Noto Sans KR, sans-serif" font-size="10" fill="#6C757D">쉬는날</text>
+    </g>
+  </g>
+  
+  <!-- 데코레이션 요소 -->
+  <circle cx="520" cy="40" r="15" fill="#3A5A78" fill-opacity="0.1"/>
+  <circle cx="550" cy="60" r="8" fill="#F8B400" fill-opacity="0.3"/>
+  <circle cx="530" cy="80" r="12" fill="#F8B400" fill-opacity="0.1"/>
+  
+  <circle cx="60" cy="40" r="10" fill="#3A5A78" fill-opacity="0.1"/>
+  <circle cx="80" cy="60" r="5" fill="#F8B400" fill-opacity="0.3"/>
+  <circle cx="40" cy="60" r="8" fill="#F8B400" fill-opacity="0.1"/>
+  
+  <!-- 하단 카피라이트 -->
+  <text x="300" y="390" font-family="Montserrat, sans-serif" font-size="10" text-anchor="middle" fill="#6C757D">© 2024 Camelus33 - 독서 습관 데이터 분석 & 시각화 시스템</text>
+</svg> 

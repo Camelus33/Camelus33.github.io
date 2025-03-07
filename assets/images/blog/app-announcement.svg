@@ -1,0 +1,70 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" rx="20" fill="#F8F9FA"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="320" r="80" fill="#3A5A78" fill-opacity="0.1"/>
+  <rect x="650" y="50" width="120" height="120" rx="20" fill="#F8B400" fill-opacity="0.1"/>
+  <path d="M720 200 Q750 250 700 300 Q650 350 600 320 Q700 280 720 200" fill="#5C946E" fill-opacity="0.1"/>
+  
+  <!-- App Phone Mockup -->
+  <rect x="100" y="80" width="220" height="440" rx="20" fill="#3A5A78" transform="scale(0.6) translate(150, 50)"/>
+  <rect x="110" y="90" width="200" height="420" rx="15" fill="#FFFFFF" transform="scale(0.6) translate(150, 50)"/>
+  
+  <!-- App Screen Elements -->
+  <rect x="110" y="90" width="200" height="60" rx="10" fill="#3A5A78" transform="scale(0.6) translate(150, 50)"/>
+  <text x="135" y="130" font-family="Arial, sans-serif" font-size="18" fill="#FFFFFF" transform="scale(0.6) translate(150, 50)">Camelus33</text>
+  
+  <!-- Timer Circle -->
+  <circle cx="210" cy="250" r="60" fill="#F8F9FA" stroke="#3A5A78" stroke-width="4" transform="scale(0.6) translate(150, 50)"/>
+  <text x="190" y="255" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#3A5A78" transform="scale(0.6) translate(150, 50)">11</text>
+  <text x="185" y="280" font-family="Arial, sans-serif" font-size="16" fill="#718096" transform="scale(0.6) translate(150, 50)">minutes</text>
+  
+  <!-- App UI Elements -->
+  <rect x="150" y="350" width="120" height="40" rx="20" fill="#F8B400" transform="scale(0.6) translate(150, 50)"/>
+  <text x="175" y="375" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" transform="scale(0.6) translate(150, 50)">START</text>
+  
+  <rect x="130" y="410" width="160" height="40" rx="5" fill="#F8F9FA" transform="scale(0.6) translate(150, 50)"/>
+  <text x="180" y="435" font-family="Arial, sans-serif" font-size="16" fill="#718096" transform="scale(0.6) translate(150, 50)">Statistics</text>
+  
+  <!-- Main Title -->
+  <text x="400" y="100" font-family="Montserrat, sans-serif" font-size="32" font-weight="bold" fill="#3A5A78" text-anchor="middle">Camelus33 앱 개발 공식 발표</text>
+  <text x="400" y="130" font-family="Montserrat, sans-serif" font-size="18" fill="#718096" text-anchor="middle">GPS 기반 독서몰입 타이머 앱</text>
+  
+  <!-- Feature Icons Row -->
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="40" fill="#F8F9FA"/>
+    <rect x="-15" y="-15" width="30" height="30" rx="5" fill="#FFFFFF" stroke="#3A5A78" stroke-width="2"/>
+    <line x1="0" y1="-15" x2="0" y2="15" stroke="#3A5A78" stroke-width="2"/>
+    <line x1="-15" y1="-5" x2="15" y2="-5" stroke="#3A5A78" stroke-width="1"/>
+    <line x1="-15" y1="0" x2="15" y2="0" stroke="#3A5A78" stroke-width="1"/>
+    <line x1="-15" y1="5" x2="15" y2="5" stroke="#3A5A78" stroke-width="1"/>
+    <text x="0" y="55" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#3A5A78" text-anchor="middle">독서 습관</text>
+  </g>
+  
+  <g transform="translate(520, 180)">
+    <circle cx="0" cy="0" r="40" fill="#F8F9FA"/>
+    <circle cx="0" cy="0" r="20" fill="#FFFFFF" stroke="#F8B400" stroke-width="2"/>
+    <line x1="0" y1="-10" x2="0" y2="0" stroke="#F8B400" stroke-width="2"/>
+    <line x1="0" y1="0" x2="10" y2="0" stroke="#F8B400" stroke-width="2"/>
+    <text x="0" y="55" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#F8B400" text-anchor="middle">11+2분 타이머</text>
+  </g>
+  
+  <g transform="translate(640, 180)">
+    <circle cx="0" cy="0" r="40" fill="#F8F9FA"/>
+    <path d="M-10 -15 Q-15 -5 -10 0 Q-20 10 -15 20 Q-10 15 0 25 Q10 15 15 20 Q20 5 15 0 Q10 -10 -10 -15" fill="#FFFFFF" stroke="#5C946E" stroke-width="2"/>
+    <text x="0" y="55" font-family="Montserrat, sans-serif" font-size="14" font-weight="bold" fill="#5C946E" text-anchor="middle">콤보 시스템</text>
+  </g>
+  
+  <!-- Launch Date -->
+  <g transform="translate(520, 300)">
+    <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="0" y="-15" font-family="Montserrat, sans-serif" font-size="16" font-weight="bold" fill="#3A5A78" text-anchor="middle">출시 일정</text>
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="0" y="25" font-family="Montserrat, sans-serif" font-size="14" fill="#F8B400" text-anchor="middle">2024년 6월 정식 출시 예정</text>
+  </g>
+  
+  <!-- Bottom Tag -->
+  <rect x="0" y="370" width="800" height="30" fill="#3A5A78"/>
+  <text x="400" y="390" font-family="Montserrat, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle">© 2024 Camelus33 Team - 독서 습관 형성을 위한 GPS 기반 독서몰입 타이머 앱</text>
+</svg> 
