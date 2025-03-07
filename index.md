@@ -12,7 +12,6 @@ cta_button_url: /contact
   <ul class="nav-list">
     <li><a href="#hero" class="nav-link active">홈</a></li>
     <li><a href="#pain-points" class="nav-link">고민 해결</a></li>
-    <li><a href="#features" class="nav-link">핵심 기능</a></li>
     <li><a href="#stats" class="nav-link">효과</a></li>
     <li><a href="#scenarios" class="nav-link">사용 시나리오</a></li>
     <li><a href="#social-proof" class="nav-link">사용자 후기</a></li>
@@ -29,14 +28,14 @@ cta_button_url: /contact
       <div class="hero-content">
         <span class="badge-new">NEW</span>
         <h1 class="hero-title new-style">단 33일만에<br>평생 독서 습관 완성하기</h1>
-        <p class="hero-description">하루 30분, 장소의 마법으로 독서력이 3배가 되는 GPS 기반 독서몰입 타이머 앱</p>
+        <p class="hero-description">하루 30분, 독서력이 3배가 되는 독서몰입 타이머 앱</p>
         <div class="social-proof">
           <div class="users-count"><strong>2,451명</strong>이 이미 참여 중</div>
           <div class="rating">⭐️ 4.9/5 <span class="reviews-count">(320+ 리뷰)</span></div>
         </div>
         <div class="hero-cta">
           <a href="{{ page.cta_button_url }}" class="btn btn-cta">{{ page.cta_button_text }}</a>
-          <a href="#features" class="btn btn-outline btn-primary">기능 살펴보기</a>
+          <a href="#stats" class="btn btn-outline btn-primary">효과 살펴보기</a>
         </div>
       </div>
       <div class="hero-image">
@@ -62,21 +61,18 @@ cta_button_url: /contact
         <div class="emoji">😩</div>
         <h3>독서를 시작하려는데 자꾸 딴짓하게 돼요</h3>
         <p>집중력 부족과 디지털 유혹으로 독서에 집중하기 어려움</p>
-        <div class="solution-tag">리딩루프로 해결</div>
       </div>
       
       <div class="pain-point-card animate-on-scroll delay-200">
         <div class="emoji">📚</div>
         <h3>읽다 만 책만 쌓여가는 책장</h3>
         <p>시작은 하지만 끝까지 읽지 못하고 포기하는 패턴 반복</p>
-        <div class="solution-tag">독서 대시보드</div>
       </div>
       
       <div class="pain-point-card animate-on-scroll delay-300">
         <div class="emoji">🤔</div>
         <h3>책을 읽어도 기억에 남지 않아요</h3>
         <p>읽은 내용을 효과적으로 정리하고 기억하는 방법 부재</p>
-        <div class="solution-tag">제텔카스텐 메모법</div>
       </div>
     </div>
     
@@ -86,74 +82,8 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 3. 핵심 기능 통합 섹션 -->
-<section id="features" class="section bg-light">
-  <div class="container">
-    <h2 class="section-title new-style">Camelus33의 핵심 기능</h2>
-    <p class="lead text-center mb-8">독서 습관을 형성하는 3가지 핵심 기술</p>
-    
-    <div class="feature-cards">
-      <!-- 리딩루프 -->
-      <div class="feature-card animate-on-scroll delay-100">
-        <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
-        <h3 class="feature-title">리딩루프</h3>
-        <p class="feature-description">과학적으로 검증된 11분 독서 + 2분 메모 사이클로 최적의 집중력과 기억력을 향상시킵니다. 짧고 효과적인 세션으로 지속 가능한 독서 습관을 형성하세요.</p>
-        <ul class="feature-benefits">
-          <li>집중력 300% 향상 효과</li>
-          <li>기억 정착률 80% 달성</li>
-          <li>하루 3-4회만으로 효과적인 독서량 확보</li>
-        </ul>
-        <div class="feature-demo">
-          <div class="app-timer interactive">
-            <div class="app-timer-display">11:00</div>
-            <div class="app-timer-controls">
-              <button class="app-timer-button"><i class="fas fa-play"></i></button>
-              <button class="app-timer-button"><i class="fas fa-pause"></i></button>
-              <button class="app-timer-button"><i class="fas fa-redo"></i></button>
-            </div>
-            <div class="timer-mode-switch">
-              <span class="active">독서 모드</span>
-              <span>메모 모드</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 제텔카스텐 메모 시스템 -->
-      <div class="feature-card animate-on-scroll delay-200">
-        <div class="feature-icon"><i class="fas fa-book"></i></div>
-        <h3 class="feature-title">제텔카스텐 메모 시스템</h3>
-        <p class="feature-description">니클라스 루만의 제텔카스텐 메모법을 디지털화하여 지식의 연결과 재발견을 촉진합니다. 각 메모는 고유 ID를 가지며 상호 연결되어 지식 네트워크를 구축합니다.</p>
-        <ul class="feature-benefits">
-          <li>지식의 구조적 저장 및 연결</li>
-          <li>아이디어 간 연결을 통한 창의성 향상</li>
-          <li>장기 기억 정착을 위한 최적화된 시스템</li>
-        </ul>
-        <div class="feature-demo">
-          <img src="/assets/images/features/zettelkasten.svg" alt="제텔카스텐 메모 시스템" class="feature-image">
-        </div>
-      </div>
-      
-      <!-- 독서 대시보드 -->
-      <div class="feature-card animate-on-scroll delay-300">
-        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h3 class="feature-title">독서 대시보드</h3>
-        <p class="feature-description">독서 습관과 진행 상황을 한눈에 파악할 수 있는 직관적인 대시보드를 제공합니다. 독서 시간, 완료한 책, 메모 통계 등을 시각적으로 확인하세요.</p>
-        <ul class="feature-benefits">
-          <li>독서 습관 형성 과정 시각화</li>
-          <li>개인 독서 통계 및 인사이트 제공</li>
-          <li>목표 설정 및 달성 현황 추적</li>
-        </ul>
-        <div class="feature-demo">
-          <img src="/assets/images/features/dashboard.svg" alt="독서 대시보드" class="feature-image">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. 앱 효과 섹션 - 신뢰성 검증 단계 -->
-<section id="stats" class="section">
+<!-- 3. 앱 효과 섹션 - 신뢰성 검증 단계 -->
+<section id="stats" class="section bg-light">
   <div class="container">
     <h2 class="section-title new-style">과학적으로 검증된 효과</h2>
     <p class="lead text-center mb-12">Camelus33는 과학적 연구를 기반으로 설계되어 효과적인 독서 습관 형성을 돕습니다</p>
@@ -168,7 +98,7 @@ cta_button_url: /contact
       <div class="stat-card animate-on-scroll delay-200">
         <div class="stat-number">87%</div>
         <div class="stat-label">습관 지속률</div>
-        <p class="mt-4">Camelus33 사용자의 87%가 3개월 이상 독서 습관을 지속했습니다. 리딩루프와 대시보드가 지속적인 동기 부여에 효과적입니다.</p>
+        <p class="mt-4">Camelus33 사용자의 87%가 3개월 이상 독서 습관을 지속했습니다. 효과적인 시스템이 지속적인 동기 부여에 효과적입니다.</p>
       </div>
       
       <div class="stat-card animate-on-scroll delay-300">
@@ -180,14 +110,14 @@ cta_button_url: /contact
       <div class="stat-card animate-on-scroll delay-400">
         <div class="stat-number">300%</div>
         <div class="stat-label">집중력 향상</div>
-        <p class="mt-4">리딩루프 시스템을 통해 집중력이 평균 300% 향상됩니다. 이는 독서의 질과 효율성을 크게 높여줍니다.</p>
+        <p class="mt-4">Camelus33 시스템을 통해 집중력이 평균 300% 향상됩니다. 이는 독서의 질과 효율성을 크게 높여줍니다.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. 사용 시나리오 섹션 - 가치 대비 비용 계산 단계 -->
-<section id="scenarios" class="section bg-light">
+<!-- 4. 사용 시나리오 섹션 - 가치 대비 비용 계산 단계 -->
+<section id="scenarios" class="section">
   <div class="container">
     <h2 class="section-title new-style">당신의 일상에 맞게 사용하세요</h2>
     
@@ -205,9 +135,9 @@ cta_button_url: /contact
               <img src="/assets/images/scenarios/library.jpg" alt="도서관 사용 시나리오" class="scenario-image">
               <div class="scenario-steps">
                 <div class="step">1. 도서관 도착</div>
-                <div class="step">2. 리딩루프 타이머 시작</div>
-                <div class="step">3. 11분 독서 + 2분 메모</div>
-                <div class="step">4. 대시보드에서 진행 상황 확인</div>
+                <div class="step">2. 타이머 시작</div>
+                <div class="step">3. 독서 및 메모</div>
+                <div class="step">4. 진행 상황 확인</div>
               </div>
             </div>
             <div class="scenario-description">
@@ -219,7 +149,7 @@ cta_button_url: /contact
                 <li>정기적인 도서관 방문 습관 형성</li>
               </ul>
               <div class="user-quote">
-                <p>"도서관에서 리딩루프를 사용하니 집중력이 확 올라가요. 한 달 만에 독서량이 3배 늘었습니다!"</p>
+                <p>"Camelus33을 사용하니 집중력이 확 올라가요. 한 달 만에 독서량이 3배 늘었습니다!"</p>
                 <div class="quote-author">- 김지현, 대학생</div>
               </div>
             </div>
@@ -230,8 +160,8 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 6. 사회적 증명 섹션 - 신뢰 구축 -->
-<section id="social-proof" class="section">
+<!-- 5. 사회적 증명 섹션 - 신뢰 구축 -->
+<section id="social-proof" class="section bg-light">
   <div class="container">
     <h2 class="section-title new-style">실제 사용자들의 변화</h2>
     
@@ -249,7 +179,7 @@ cta_button_url: /contact
           </div>
         </div>
         <div class="testimonial-quote">
-          "Camelus33 덕분에 매일 30분씩 독서하는 습관이 생겼어요. 리딩루프 기능으로 집중력이 크게 향상되었고, 제텔카스텐 메모 시스템으로 읽은 내용을 더 잘 기억할 수 있게 되었습니다."
+          "Camelus33 덕분에 매일 30분씩 독서하는 습관이 생겼어요. 집중력이 크게 향상되었고, 읽은 내용을 더 잘 기억할 수 있게 되었습니다."
         </div>
         <div class="testimonial-author">
           <img src="/assets/images/testimonials/user1.jpg" alt="김지현" class="testimonial-author-avatar">
@@ -274,7 +204,7 @@ cta_button_url: /contact
           </div>
         </div>
         <div class="testimonial-quote">
-          "대시보드에서 내 독서 습관을 한눈에 볼 수 있어 동기부여가 됩니다. 제텔카스텐 메모 시스템 덕분에 책의 내용이 오래 기억에 남고, 리딩루프로 꾸준히 독서하는 습관이 생겼어요."
+          "Camelus33에서 내 독서 습관을 한눈에 볼 수 있어 동기부여가 됩니다. 책의 내용이 오래 기억에 남고, 꾸준히 독서하는 습관이 생겼어요."
         </div>
         <div class="testimonial-author">
           <img src="/assets/images/testimonials/user2.jpg" alt="박민수" class="testimonial-author-avatar">
@@ -289,7 +219,7 @@ cta_button_url: /contact
   </div>
 </section>
 
-<!-- 7. 혜택 요약 및 행동 유도 섹션 - 최종 행동 유도 -->
+<!-- 6. 혜택 요약 및 행동 유도 섹션 - 최종 행동 유도 -->
 <section id="cta" class="section bg-primary">
   <div class="container text-center">
     <span class="limited-offer-badge">선착순 100명 한정</span>
