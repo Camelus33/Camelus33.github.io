@@ -62,14 +62,14 @@ cta_button_url: /contact
         <div class="emoji">😩</div>
         <h3>독서를 시작하려는데 자꾸 딴짓하게 돼요</h3>
         <p>집중력 부족과 디지털 유혹으로 독서에 집중하기 어려움</p>
-        <div class="solution-tag">GPS 인증으로 해결</div>
+        <div class="solution-tag">리딩루프로 해결</div>
       </div>
       
       <div class="pain-point-card animate-on-scroll delay-200">
         <div class="emoji">📚</div>
         <h3>읽다 만 책만 쌓여가는 책장</h3>
         <p>시작은 하지만 끝까지 읽지 못하고 포기하는 패턴 반복</p>
-        <div class="solution-tag">33일 습관화 시스템</div>
+        <div class="solution-tag">독서 대시보드</div>
       </div>
       
       <div class="pain-point-card animate-on-scroll delay-300">
@@ -77,13 +77,6 @@ cta_button_url: /contact
         <h3>책을 읽어도 기억에 남지 않아요</h3>
         <p>읽은 내용을 효과적으로 정리하고 기억하는 방법 부재</p>
         <div class="solution-tag">제텔카스텐 메모법</div>
-      </div>
-      
-      <div class="pain-point-card animate-on-scroll delay-400">
-        <div class="emoji">⏱️</div>
-        <h3>독서 시간 관리가 어려워요</h3>
-        <p>언제, 얼마나 읽어야 할지 구조화된 시스템 필요</p>
-        <div class="solution-tag">11+2분 타이머 시스템</div>
       </div>
     </div>
     
@@ -97,28 +90,13 @@ cta_button_url: /contact
 <section id="features" class="section bg-light">
   <div class="container">
     <h2 class="section-title new-style">Camelus33의 핵심 기능</h2>
-    <p class="lead text-center mb-8">독서 습관을 형성하는 4가지 핵심 기술</p>
+    <p class="lead text-center mb-8">독서 습관을 형성하는 3가지 핵심 기술</p>
     
     <div class="feature-cards">
-      <!-- GPS 인증 기능 -->
+      <!-- 리딩루프 -->
       <div class="feature-card animate-on-scroll delay-100">
-        <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <h3 class="feature-title">GPS 위치 인증</h3>
-        <p class="feature-description">도서관과 같은 특정 장소에서 독서할 때 GPS 인증을 통해 2배 포인트를 획득하세요. 장소의 힘을 활용해 독서에 최적화된 환경을 조성합니다.</p>
-        <ul class="feature-benefits">
-          <li>집중력 향상을 위한 장소 기반 독서</li>
-          <li>도서관, 카페 등 독서 친화적 장소 인증</li>
-          <li>위치별 차등 보상 시스템</li>
-        </ul>
-        <div class="feature-demo">
-          <img src="/assets/images/features/gps-auth.svg" alt="GPS 인증 기능" class="feature-image">
-        </div>
-      </div>
-      
-      <!-- 11+2분 타이머 시스템 -->
-      <div class="feature-card animate-on-scroll delay-200">
-        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-        <h3 class="feature-title">11+2분 타이머 시스템</h3>
+        <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3 class="feature-title">리딩루프</h3>
         <p class="feature-description">과학적으로 검증된 11분 독서 + 2분 메모 사이클로 최적의 집중력과 기억력을 향상시킵니다. 짧고 효과적인 세션으로 지속 가능한 독서 습관을 형성하세요.</p>
         <ul class="feature-benefits">
           <li>집중력 300% 향상 효과</li>
@@ -142,7 +120,7 @@ cta_button_url: /contact
       </div>
       
       <!-- 제텔카스텐 메모 시스템 -->
-      <div class="feature-card animate-on-scroll delay-300">
+      <div class="feature-card animate-on-scroll delay-200">
         <div class="feature-icon"><i class="fas fa-book"></i></div>
         <h3 class="feature-title">제텔카스텐 메모 시스템</h3>
         <p class="feature-description">니클라스 루만의 제텔카스텐 메모법을 디지털화하여 지식의 연결과 재발견을 촉진합니다. 각 메모는 고유 ID를 가지며 상호 연결되어 지식 네트워크를 구축합니다.</p>
@@ -156,18 +134,18 @@ cta_button_url: /contact
         </div>
       </div>
       
-      <!-- 게임화 요소 -->
-      <div class="feature-card animate-on-scroll delay-400">
-        <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-        <h3 class="feature-title">게임화 및 시즌제</h3>
-        <p class="feature-description">배지, 랭킹, 시즌 챔피언십 등의 게임화 요소를 통해 독서의 재미와 몰입도를 높입니다. 시즌제 운영으로 지속적인 참여를 유도합니다.</p>
+      <!-- 독서 대시보드 -->
+      <div class="feature-card animate-on-scroll delay-300">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3 class="feature-title">독서 대시보드</h3>
+        <p class="feature-description">독서 습관과 진행 상황을 한눈에 파악할 수 있는 직관적인 대시보드를 제공합니다. 독서 시간, 완료한 책, 메모 통계 등을 시각적으로 확인하세요.</p>
         <ul class="feature-benefits">
-          <li>독서 성취에 따른 배지 및 레벨 시스템</li>
-          <li>친구들과 함께하는 독서 챌린지</li>
-          <li>시즌별 테마와 보상으로 지속적 동기부여</li>
+          <li>독서 습관 형성 과정 시각화</li>
+          <li>개인 독서 통계 및 인사이트 제공</li>
+          <li>목표 설정 및 달성 현황 추적</li>
         </ul>
         <div class="feature-demo">
-          <img src="/assets/images/features/gamification.svg" alt="게임화 요소" class="feature-image">
+          <img src="/assets/images/features/dashboard.svg" alt="독서 대시보드" class="feature-image">
         </div>
       </div>
     </div>
@@ -190,7 +168,7 @@ cta_button_url: /contact
       <div class="stat-card animate-on-scroll delay-200">
         <div class="stat-number">87%</div>
         <div class="stat-label">습관 지속률</div>
-        <p class="mt-4">Camelus33 사용자의 87%가 3개월 이상 독서 습관을 지속했습니다. 게임화 요소와 보상 시스템이 지속적인 동기 부여에 효과적입니다.</p>
+        <p class="mt-4">Camelus33 사용자의 87%가 3개월 이상 독서 습관을 지속했습니다. 리딩루프와 대시보드가 지속적인 동기 부여에 효과적입니다.</p>
       </div>
       
       <div class="stat-card animate-on-scroll delay-300">
@@ -202,7 +180,7 @@ cta_button_url: /contact
       <div class="stat-card animate-on-scroll delay-400">
         <div class="stat-number">300%</div>
         <div class="stat-label">집중력 향상</div>
-        <p class="mt-4">특정 장소에서의 GPS 인증과 타이머 시스템을 통해 집중력이 평균 300% 향상됩니다. 이는 독서의 질과 효율성을 크게 높여줍니다.</p>
+        <p class="mt-4">리딩루프 시스템을 통해 집중력이 평균 300% 향상됩니다. 이는 독서의 질과 효율성을 크게 높여줍니다.</p>
       </div>
     </div>
   </div>
@@ -218,7 +196,6 @@ cta_button_url: /contact
         <button class="scenario-tab active" data-scenario="library">도서관에서</button>
         <button class="scenario-tab" data-scenario="cafe">카페에서</button>
         <button class="scenario-tab" data-scenario="home">집에서</button>
-        <button class="scenario-tab" data-scenario="commute">출퇴근 시</button>
       </div>
       
       <div class="scenario-content">
@@ -228,22 +205,21 @@ cta_button_url: /contact
               <img src="/assets/images/scenarios/library.jpg" alt="도서관 사용 시나리오" class="scenario-image">
               <div class="scenario-steps">
                 <div class="step">1. 도서관 도착</div>
-                <div class="step">2. GPS 자동 인증</div>
-                <div class="step">3. 11+2분 타이머 시작</div>
-                <div class="step">4. 2배 포인트 획득</div>
+                <div class="step">2. 리딩루프 타이머 시작</div>
+                <div class="step">3. 11분 독서 + 2분 메모</div>
+                <div class="step">4. 대시보드에서 진행 상황 확인</div>
               </div>
             </div>
             <div class="scenario-description">
               <h3 class="new-style">도서관: 최고의 독서 환경</h3>
               <p>도서관의 조용한 환경과 독서에 최적화된 분위기에서 Camelus33의 효과가 극대화됩니다.</p>
               <ul class="scenario-benefits">
-                <li>GPS 인증으로 2배 포인트 획득</li>
                 <li>주변 독서인들의 동기부여 효과</li>
                 <li>스마트폰 사용 감소로 집중력 향상</li>
                 <li>정기적인 도서관 방문 습관 형성</li>
               </ul>
               <div class="user-quote">
-                <p>"도서관에 가면 자동으로 독서 모드가 켜지고, 집중력이 확 올라가요. 한 달 만에 독서량이 3배 늘었습니다!"</p>
+                <p>"도서관에서 리딩루프를 사용하니 집중력이 확 올라가요. 한 달 만에 독서량이 3배 늘었습니다!"</p>
                 <div class="quote-author">- 김지현, 대학생</div>
               </div>
             </div>
@@ -273,7 +249,7 @@ cta_button_url: /contact
           </div>
         </div>
         <div class="testimonial-quote">
-          "Camelus33 덕분에 매일 30분씩 독서하는 습관이 생겼어요. GPS 인증 기능이 있어서 도서관에 가는 빈도가 훨씬 늘었고, 메모 시스템으로 읽은 내용을 더 잘 기억할 수 있게 되었습니다."
+          "Camelus33 덕분에 매일 30분씩 독서하는 습관이 생겼어요. 리딩루프 기능으로 집중력이 크게 향상되었고, 제텔카스텐 메모 시스템으로 읽은 내용을 더 잘 기억할 수 있게 되었습니다."
         </div>
         <div class="testimonial-author">
           <img src="/assets/images/testimonials/user1.jpg" alt="김지현" class="testimonial-author-avatar">
@@ -298,7 +274,7 @@ cta_button_url: /contact
           </div>
         </div>
         <div class="testimonial-quote">
-          "게임화 요소가 정말 중독성 있어요! 콤보 시스템 때문에 독서를 더 꾸준히 하게 되었고, 랭킹 시스템이 있어서 친구들과 함께 독서 챌린지를 하는 재미도 있습니다."
+          "대시보드에서 내 독서 습관을 한눈에 볼 수 있어 동기부여가 됩니다. 제텔카스텐 메모 시스템 덕분에 책의 내용이 오래 기억에 남고, 리딩루프로 꾸준히 독서하는 습관이 생겼어요."
         </div>
         <div class="testimonial-author">
           <img src="/assets/images/testimonials/user2.jpg" alt="박민수" class="testimonial-author-avatar">
