@@ -29,6 +29,21 @@ cta_button_url: /contact
         <span class="badge-new">NEW</span>
         <h1 class="hero-title new-style">단 33일만에<br>평생 독서 습관 완성하기</h1>
         <p class="hero-description">하루 30분, 독서력이 3배가 되는 독서몰입 타이머 앱</p>
+        
+        <!-- 독서 타이머 시연 -->
+        <div class="app-timer interactive hero-timer">
+          <div class="app-timer-display">11:00</div>
+          <div class="app-timer-controls">
+            <button class="app-timer-button"><i class="fas fa-play"></i></button>
+            <button class="app-timer-button"><i class="fas fa-pause"></i></button>
+            <button class="app-timer-button"><i class="fas fa-redo"></i></button>
+          </div>
+          <div class="timer-mode-switch">
+            <span class="active">독서 모드</span>
+            <span>메모 모드</span>
+          </div>
+        </div>
+        
         <div class="social-proof">
           <div class="users-count"><strong>2,451명</strong>이 이미 참여 중</div>
           <div class="rating">⭐️ 4.9/5 <span class="reviews-count">(320+ 리뷰)</span></div>
@@ -36,15 +51,6 @@ cta_button_url: /contact
         <div class="hero-cta">
           <a href="{{ page.cta_button_url }}" class="btn btn-cta">{{ page.cta_button_text }}</a>
           <a href="#stats" class="btn btn-outline btn-primary">효과 살펴보기</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="app-device">
-          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}" class="app-screenshot">
-          <div class="before-after-label">
-            <span class="before">Before</span>
-            <span class="after">After</span>
-          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize components
   initNavigation();
   initScrollAnimations();
-  initTimerDemo();
+  initHeroTimer();
   initScenarioTabs();
   
   // Add any additional initialization here
@@ -271,13 +271,13 @@ function initCountdownTimer() {
   setInterval(updateTimer, 1000);
 }
 
-// 독서 타이머 데모
-function initTimerDemo() {
-  const timerDisplay = document.querySelector('.app-timer-display');
-  const playButton = document.querySelector('.app-timer-button:nth-child(1)');
-  const pauseButton = document.querySelector('.app-timer-button:nth-child(2)');
-  const resetButton = document.querySelector('.app-timer-button:nth-child(3)');
-  const timerModes = document.querySelectorAll('.timer-mode-switch span');
+// Hero Timer
+function initHeroTimer() {
+  const timerDisplay = document.querySelector('.hero-timer .app-timer-display');
+  const playButton = document.querySelector('.hero-timer .app-timer-button:nth-child(1)');
+  const pauseButton = document.querySelector('.hero-timer .app-timer-button:nth-child(2)');
+  const resetButton = document.querySelector('.hero-timer .app-timer-button:nth-child(3)');
+  const timerModes = document.querySelectorAll('.hero-timer .timer-mode-switch span');
   
   if (!timerDisplay) return;
   
@@ -364,6 +364,16 @@ function initTimerDemo() {
   
   // Initial display
   updateDisplay();
+  
+  // Add pulse animation to play button to draw attention
+  if (playButton) {
+    setTimeout(() => {
+      playButton.classList.add('pulse-animation');
+      setTimeout(() => {
+        playButton.classList.remove('pulse-animation');
+      }, 2000);
+    }, 1500);
+  }
 }
 
 // Page Navigation
