@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
 }
 
 /* 제목 스타일 */
@@ -14,45 +15,51 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
-  line-height: var(--line-height-heading);
+  line-height: 1.3;
   color: var(--color-text-dark);
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
 }
 
 h1, .h1 {
   font-size: var(--font-size-4xl);
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 2rem;
 }
 
 h2, .h2 {
   font-size: var(--font-size-3xl);
-  letter-spacing: -0.01em;
+  margin-bottom: 1.75rem;
 }
 
 h3, .h3 {
   font-size: var(--font-size-2xl);
+  margin-bottom: 1.5rem;
 }
 
 h4, .h4 {
   font-size: var(--font-size-xl);
+  margin-bottom: 1.25rem;
 }
 
 h5, .h5 {
   font-size: var(--font-size-lg);
+  margin-bottom: 1rem;
 }
 
 h6, .h6 {
   font-size: var(--font-size-base);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-bottom: 1rem;
 }
 
 /* 문단 스타일 */
 p {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  line-height: var(--line-height-paragraph);
+  line-height: 1.7;
 }
 
 p:last-child {
@@ -61,11 +68,24 @@ p:last-child {
 
 /* 강조 및 하이라이트 */
 .lead {
-  font-size: var(--font-size-lg);
-  font-weight: 300;
+  font-size: var(--font-size-xl);
+  font-weight: 400;
   line-height: 1.6;
   margin-bottom: 2rem;
   color: var(--color-text-dark);
+  letter-spacing: -0.01em;
+}
+
+.text-spacing {
+  letter-spacing: 0.5px;
+}
+
+.text-tight {
+  letter-spacing: -0.02em;
+}
+
+.text-loose {
+  letter-spacing: 0.05em;
 }
 
 .text-large {
@@ -334,20 +354,28 @@ small {
 
 /* 반응형 타이포그래피 */
 @media (max-width: 768px) {
+  body {
+    font-size: calc(var(--font-size-base) * 0.95);
+  }
+
   h1, .h1 {
-    font-size: calc(var(--font-size-3xl) * 0.9);
+    font-size: calc(var(--font-size-3xl) * 0.95);
+    margin-bottom: 1.75rem;
   }
   
   h2, .h2 {
-    font-size: calc(var(--font-size-2xl) * 0.9);
+    font-size: calc(var(--font-size-2xl) * 0.95);
+    margin-bottom: 1.5rem;
   }
   
   h3, .h3 {
-    font-size: calc(var(--font-size-xl) * 0.9);
+    font-size: calc(var(--font-size-xl) * 0.95);
+    margin-bottom: 1.25rem;
   }
   
   .lead {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
+    margin-bottom: 1.75rem;
   }
 }
 
