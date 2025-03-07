@@ -2,70 +2,154 @@
 layout: default
 ---
 
-<section class="hero">
+<!-- 히어로 섹션: Vercel 스타일 디자인 -->
+<section class="hero hero-vercel">
+  <div class="hero-vercel-gradient"></div>
+  <div class="hero-vercel-gradient-2"></div>
   <div class="container">
-    <div class="hero-content">
-      <h1>{{ page.title }}</h1>
-      <p class="hero-description">{{ page.description }}</p>
-      {% if page.cta_button_text %}
-      <a href="{{ page.cta_button_url }}" class="cta-button">{{ page.cta_button_text }}</a>
-      {% endif %}
-    </div>
-    <div class="hero-image">
-      <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title new-style">{{ page.title }}</h1>
+        <p class="hero-description">{{ page.description }}</p>
+        {% if page.cta_button_text %}
+        <div class="hero-cta">
+          <a href="{{ page.cta_button_url }}" class="btn btn-cta">{{ page.cta_button_text }}</a>
+          <a href="/features" class="btn btn-outline btn-primary">기능 살펴보기</a>
+        </div>
+        {% endif %}
+      </div>
+      <div class="hero-image">
+        <div class="app-device">
+          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}" class="app-screenshot">
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="features">
+<!-- 메인 콘텐츠 -->
+{{ content }}
+
+<!-- 주요 기능 섹션: 카드 기반 레이아웃 -->
+<section class="section bg-light">
   <div class="container">
-    <h2 class="section-title">주요 기능</h2>
-    <div class="features-grid">
+    <h2 class="section-title new-style">주요 기능</h2>
+    <p class="lead text-center mb-12">독서 습관을 형성하는 데 도움이 되는 핵심 기능들을 소개합니다</p>
+    
+    <div class="app-features">
       {% for feature in site.features %}
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="app-feature">
+        <div class="app-feature-icon">
           <i class="fas {{ feature.icon }}"></i>
         </div>
-        <h3>{{ feature.title }}</h3>
+        <h3 class="new-style">{{ feature.title }}</h3>
         <p>{{ feature.excerpt }}</p>
-        <a href="{{ feature.url | relative_url }}" class="read-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+        <a href="{{ feature.url | relative_url }}" class="card-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="about">
+<!-- 독서 타이머 데모 섹션 -->
+<section class="section">
   <div class="container">
-    <h2 class="section-title">서비스 개요</h2>
-    <div class="about-content">
-      {{ content }}
+    <h2 class="section-title new-style">독서 몰입 타이머</h2>
+    <p class="lead text-center mb-8">11분 독서 + 2분 메모 시스템으로 효율적인 독서 습관을 형성하세요</p>
+    
+    <div class="app-timer">
+      <div class="app-timer-display">11:00</div>
+      <div class="app-timer-controls">
+        <button class="app-timer-button"><i class="fas fa-play"></i></button>
+        <button class="app-timer-button"><i class="fas fa-pause"></i></button>
+        <button class="app-timer-button"><i class="fas fa-redo"></i></button>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="blog">
+<!-- 최신 블로그 포스트 섹션: 세련된 카드 디자인 -->
+<section class="section bg-light">
   <div class="container">
-    <h2 class="section-title">최신 소식</h2>
-    <div class="posts-grid">
+    <h2 class="section-title new-style">최신 소식</h2>
+    <p class="lead text-center mb-12">Camelus33의 개발 소식과 독서 관련 유용한 정보를 확인하세요</p>
+    
+    <div class="card-group">
       {% for post in site.posts limit:3 %}
-      <div class="post-card">
+      <div class="card card-blog">
         {% if post.image %}
         <div class="post-image">
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          {% if post.category %}
+          <div class="post-category">{{ post.category }}</div>
+          {% endif %}
         </div>
         {% endif %}
-        <div class="post-content">
-          <span class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
-          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-          <p>{{ post.excerpt }}</p>
-          <a href="{{ post.url | relative_url }}" class="read-more">더 읽기 <i class="fas fa-arrow-right"></i></a>
+        <div class="card-body">
+          <div class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</div>
+          <h3 class="card-title new-style"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="card-text">{{ post.excerpt }}</p>
+          <div class="post-meta">
+            {% if post.author_image %}
+            <div class="post-author">
+              <img src="{{ post.author_image | relative_url }}" alt="{{ post.author }}" class="post-author-avatar">
+              <span>{{ post.author }}</span>
+            </div>
+            {% endif %}
+            <a href="{{ post.url | relative_url }}" class="card-link ml-auto">더 읽기 <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
       {% endfor %}
     </div>
-    <div class="view-all">
-      <a href="/blog" class="view-all-button">모든 글 보기</a>
+    
+    <div class="text-center mt-12">
+      <a href="/blog" class="btn btn-outline btn-primary">모든 글 보기</a>
     </div>
+  </div>
+</section>
+
+<!-- 추천사 섹션 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title new-style">사용자 후기</h2>
+    <p class="lead text-center mb-12">Camelus33를 사용한 사용자들의 실제 경험을 확인하세요</p>
+    
+    <div class="grid grid-cols-2 gap-8">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          Camelus33 덕분에 매일 30분씩 독서하는 습관이 생겼어요. GPS 인증 기능이 있어서 도서관에 가는 빈도가 훨씬 늘었고, 메모 시스템으로 읽은 내용을 더 잘 기억할 수 있게 되었습니다.
+        </div>
+        <div class="testimonial-author">
+          <img src="/assets/images/testimonials/user1.jpg" alt="김지현" class="testimonial-author-avatar">
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">김지현</div>
+            <div class="testimonial-author-title">대학생, 23세</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          게임화 요소가 정말 중독성 있어요! 콤보 시스템 때문에 독서를 더 꾸준히 하게 되었고, 랭킹 시스템이 있어서 친구들과 함께 독서 챌린지를 하는 재미도 있습니다.
+        </div>
+        <div class="testimonial-author">
+          <img src="/assets/images/testimonials/user2.jpg" alt="박민수" class="testimonial-author-avatar">
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">박민수</div>
+            <div class="testimonial-author-title">직장인, 32세</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA 섹션 -->
+<section class="section bg-primary">
+  <div class="container text-center">
+    <h2 class="text-on-dark new-style">함께 독서 습관을 만들어 보세요</h2>
+    <p class="lead text-on-dark mb-8">Camelus33와 함께라면 독서가 일상의 즐거운 습관이 됩니다</p>
+    <a href="{{ page.cta_button_url | relative_url }}" class="btn btn-cta btn-lg">{{ page.cta_button_text }}</a>
   </div>
 </section> 

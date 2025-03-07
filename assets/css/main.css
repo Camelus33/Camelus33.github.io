@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: var(--text-primary);
@@ -103,9 +103,9 @@ img {
 }
 
 .app-screenshot {
-  overflow: hidden;
+  position: relative;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-lapis-lazuli-light), var(--color-lapis-lazuli));
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
 }
 
@@ -117,19 +117,23 @@ img {
   transform: scale(1.05);
 }
 
+/* App Features */
 .app-features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-8);
-  margin-top: var(--space-16);
+  margin-top: var(--space-8);
 }
 
 .app-feature {
-  padding: var(--space-6);
   background-color: var(--bg-white);
   border-radius: var(--radius-lg);
+  padding: var(--space-6);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .app-feature:hover {
@@ -140,97 +144,98 @@ img {
 .app-feature-icon {
   width: 60px;
   height: 60px;
-  margin: 0 auto var(--space-4);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-lapis-lazuli-light), var(--color-lapis-lazuli));
-  color: white;
+  background-color: rgba(38, 97, 156, 0.1);
+  color: var(--primary-color);
   border-radius: var(--radius-full);
+  margin-bottom: var(--space-4);
   font-size: var(--text-2xl);
 }
 
+/* App Timer */
 .app-timer {
   max-width: 400px;
   margin: 0 auto;
-  background: linear-gradient(135deg, var(--color-lapis-lazuli-light), var(--color-lapis-lazuli));
-  border-radius: 16px;
-  padding: 2rem;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
   box-shadow: var(--shadow-lg);
   text-align: center;
+  border: 1px solid var(--border-color-light);
 }
 
 .app-timer-display {
   font-size: 4rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .app-timer-controls {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .app-timer-button {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background-color: white;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-color);
+  color: var(--text-on-dark);
   border: none;
+  font-size: var(--text-xl);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: var(--color-lapis-lazuli);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   box-shadow: var(--shadow-md);
 }
 
 .app-timer-button:hover {
-  transform: scale(1.05);
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  background-color: var(--color-gray-100);
 }
 
 .app-timer-button:active {
-  transform: scale(0.95);
+  transform: translateY(0);
 }
 
-/* 카드 기능 스타일 개선 */
 .card-feature {
-  background-color: white;
-  border-radius: 12px;
-  padding: 1.5rem;
+  background-color: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
   box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
+  height: 100%;
 }
 
 .card-feature:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
 }
 
-/* 하이라이트 색상 변형 */
 .highlight-primary {
-  background: linear-gradient(transparent 70%, rgba(38, 97, 156, 0.2) 0);
-  padding: 0 0.2em;
+  color: var(--primary-color);
+  font-weight: var(--font-bold);
 }
 
 .highlight-secondary {
-  background: linear-gradient(transparent 70%, rgba(224, 17, 95, 0.2) 0);
-  padding: 0 0.2em;
+  color: var(--secondary-color);
+  font-weight: var(--font-bold);
 }
 
-/* Utilities */
+/* Animation */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
 }
 
 .animate-on-scroll.animated {
@@ -266,7 +271,7 @@ img {
 
 .bg-secondary {
   background-color: var(--secondary-color);
-  color: var(--text-primary);
+  color: var(--text-on-dark);
 }
 
 .bg-accent {
@@ -283,9 +288,9 @@ img {
   color: var(--text-on-dark);
 }
 
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -293,26 +298,27 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--text-light);
-  border-radius: 5px;
+  background: var(--primary-light);
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--text-tertiary);
+  background: var(--primary-color);
 }
 
 /* Form Elements */
 input, 
 textarea, 
 select {
-  font-family: inherit;
-  font-size: var(--text-base);
+  width: 100%;
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--text-base);
+  color: var(--text-primary);
   background-color: var(--bg-white);
-  transition: border-color var(--transition-fast) var(--easing-default),
-              box-shadow var(--transition-fast) var(--easing-default);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 input:focus, 
@@ -320,7 +326,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+  box-shadow: var(--shadow-outline);
 }
 
 label {
@@ -339,6 +345,7 @@ label {
 }
 
 .form-checkbox input {
+  width: auto;
   margin-right: var(--space-2);
 }
 
@@ -347,15 +354,15 @@ label {
 }
 
 .submit-button {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
   background-color: var(--primary-color);
   color: var(--text-on-dark);
-  font-weight: var(--font-medium);
-  padding: var(--space-3) var(--space-6);
   border: none;
   border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
   cursor: pointer;
-  transition: background-color var(--transition-fast) var(--easing-default),
-              transform var(--transition-fast) var(--easing-default);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .submit-button:hover {
@@ -363,150 +370,121 @@ label {
   transform: translateY(-2px);
 }
 
-/* Print Styles */
 @media print {
   .site-header,
   .site-footer,
-  .hero-cta,
-  .scroll-indicator {
-    display: none !important;
+  .hero,
+  .cta-section {
+    display: none;
   }
   
   body {
-    color: #000;
-    background: #fff;
+    font-size: 12pt;
+    line-height: 1.5;
   }
   
   .container {
     max-width: 100%;
-    width: 100%;
+    padding: 0;
   }
   
   a {
+    text-decoration: none;
     color: #000;
-    text-decoration: underline;
   }
 }
 
-/* 디자인 시스템 - 변수 */
+/* Vercel-inspired styles */
 :root {
-  /* 기본 색상 */
-  --color-lapis-lazuli: #26619C;
-  --color-lapis-lazuli-light: #3D7AB3;
-  --color-lapis-lazuli-dark: #1A4B7D;
-  --color-ruby: #E0115F;
-  --color-ruby-light: #FF1F71;
-  --color-ruby-dark: #B30D4C;
+  --font-sans: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
   
-  /* 테마 색상 */
-  --color-primary: var(--color-lapis-lazuli);
-  --color-primary-light: var(--color-lapis-lazuli-light);
-  --color-primary-dark: var(--color-lapis-lazuli-dark);
-  --color-secondary: var(--color-ruby);
-  --color-secondary-light: var(--color-ruby-light);
-  --color-secondary-dark: var(--color-ruby-dark);
+  --geist-foreground: #000;
+  --geist-background: #fff;
+  --accents-1: #fafafa;
+  --accents-2: #eaeaea;
+  --accents-3: #999;
+  --accents-4: #888;
+  --accents-5: #666;
+  --accents-6: #444;
+  --accents-7: #333;
+  --accents-8: #111;
   
-  /* 배경 색상 */
-  --color-background: #FFFFFF;
-  --color-background-alt: #F8F9FA;
-  --color-background-dark: #343A40;
+  --shadow-smallest: 0px 2px 4px rgba(0,0,0,0.1);
+  --shadow-small: 0 5px 10px rgba(0,0,0,0.12);
+  --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-large: 0 30px 60px rgba(0,0,0,0.12);
   
-  /* 텍스트 색상 */
-  --color-text: #2C3E50;
-  --color-text-light: #6C757D;
-  --color-text-lighter: #ADB5BD;
-  --color-text-dark: #212529;
-  --color-text-on-dark: #FFFFFF;
+  --geist-success: #0070f3;
+  --geist-success-light: #3291ff;
+  --geist-success-dark: #0761d1;
   
-  /* 그림자 효과 */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --geist-error: #e00;
+  --geist-error-light: #ff1a1a;
+  --geist-error-dark: #c00;
   
-  /* 타이포그래피 */
-  --font-family-base: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  --font-family-heading: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
+  --geist-warning: #f5a623;
+  --geist-warning-light: #f7b955;
+  --geist-warning-dark: #f49b0b;
   
-  /* 간격 */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
+  --geist-cyan: #50e3c2;
+  --geist-cyan-light: #79ffe1;
+  --geist-cyan-dark: #29bc9b;
   
-  /* 테두리 */
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.375rem;
-  --border-radius-lg: 0.5rem;
-  --border-radius-xl: 1rem;
+  --geist-highlight-purple: #f81ce5;
+  --geist-highlight-magenta: #eb367f;
+  --geist-highlight-pink: #ff0080;
+  --geist-highlight-yellow: #fff500;
   
-  /* 애니메이션 */
-  --transition-fast: 150ms ease-in-out;
-  --transition-normal: 250ms ease-in-out;
-  --transition-slow: 350ms ease-in-out;
+  --geist-radius: 5px;
+  --geist-marketing-radius: 8px;
   
-  /* 레이아웃 */
-  --container-max-width: 1200px;
-  --container-padding: var(--spacing-md);
+  --geist-gap: 16pt;
+  --geist-gap-negative: -16pt;
+  --geist-gap-half: 8pt;
+  --geist-gap-half-negative: -8pt;
+  --geist-gap-quarter: 4pt;
+  --geist-gap-quarter-negative: -4pt;
   
-  /* Z-인덱스 레이어 */
-  --z-index-dropdown: 1000;
-  --z-index-sticky: 1020;
-  --z-index-fixed: 1030;
-  --z-index-modal-backdrop: 1040;
-  --z-index-modal: 1050;
-  --z-index-tooltip: 1060;
+  --geist-page-margin: 16pt;
+  --geist-page-width: 1000pt;
+  --geist-page-width-with-margin: 1032pt;
 }
 
-/* 타블렛 이상의 화면에서 폰트 크기 증가 */
 @media (min-width: 768px) {
   :root {
-    --font-size-base: 1.0625rem; /* 17px */
-    --font-size-md: 1.1875rem;   /* 19px */
-    --font-size-lg: 1.375rem;    /* 22px */
-    --font-size-xl: 1.75rem;     /* 28px */
-    --font-size-2xl: 2.1875rem;  /* 35px */
-    --font-size-3xl: 2.625rem;   /* 42px */
+    --geist-page-margin: 24pt;
+    --geist-page-width-with-margin: 1048pt;
   }
 }
 
-/* 기본 리셋 및 전역 스타일 */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-family-body);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  line-height: 1.6;
-  font-weight: 400;
-  overflow-x: hidden;
+  margin: 0;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--geist-foreground);
+  background: var(--geist-background);
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
-/* 접근성 */
 :focus-visible {
-  outline: 3px solid var(--color-primary);
+  outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
 
@@ -522,52 +500,49 @@ body {
   border-width: 0;
 }
 
-/* 컨테이너 및 레이아웃 */
+/* Container */
 .container {
   width: 100%;
-  max-width: var(--container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--geist-page-margin);
+  position: relative;
 }
 
+/* Main Content */
 .main-content {
-  flex: 1 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-16);
+  min-height: calc(100vh - 200px);
 }
 
-/* 섹션 스타일 */
+/* Section */
 .section {
-  padding: var(--spacing-2xl) 0;
+  padding: var(--space-16) 0;
 }
 
 .section-title {
-  font-family: var(--font-family-heading);
-  font-weight: 700;
-  font-size: var(--font-size-2xl);
-  color: var(--color-primary);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-8);
   text-align: center;
-  margin-bottom: var(--spacing-xl);
   position: relative;
 }
 
 .section-title::after {
   content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
   width: 60px;
-  height: 3px;
-  background-color: var(--color-secondary);
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: var(--space-4) auto 0;
+  border-radius: var(--radius-full);
 }
 
-/* 반응형 그리드 시스템 */
+/* Grid */
 .grid {
   display: grid;
-  gap: var(--spacing-lg);
+  gap: var(--space-8);
 }
 
 .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
@@ -581,34 +556,34 @@ body {
   .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* 두 컬럼 레이아웃 */
+/* Two Columns Layout */
 .two-columns {
   display: grid;
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
 }
 
 @media (min-width: 768px) {
   .two-columns {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 }
 
-/* 유틸리티 클래스 */
 .text-center { text-align: center; }
-.text-primary { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
-.text-accent { color: var(--color-accent); }
-.text-on-dark { color: var(--color-text-on-dark); }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-accent { color: var(--accent-color); }
+.text-on-dark { color: var(--text-on-dark); }
 
-.bg-primary { background-color: var(--color-primary); }
-.bg-secondary { background-color: var(--color-secondary); }
-.bg-light { background-color: var(--color-background-light); }
+.bg-primary { background-color: var(--primary-color); }
+.bg-secondary { background-color: var(--secondary-color); }
+.bg-light { background-color: var(--accents-1); }
 
 .lead {
-  font-size: var(--font-size-lg);
-  font-weight: 300;
-  margin-bottom: var(--spacing-lg);
+  font-size: var(--text-xl);
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 .mt-1 { margin-top: var(--spacing-xs); }
@@ -629,7 +604,7 @@ body {
 .p-6 { padding: var(--spacing-lg); }
 .p-8 { padding: var(--spacing-xl); }
 
-/* 접근성 및 성능 최적화를 위한 애니메이션 설정 */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
@@ -639,22 +614,22 @@ body {
   }
 }
 
-/* 다크 모드 지원 */
+/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   .dark-mode-support {
-    --color-text: #E9ECEF;
-    --color-text-light: #ADB5BD;
-    --color-background: #212529;
-    --color-background-light: #343A40;
-    --color-border: #495057;
+    --bg-white: var(--bg-dark);
+    --bg-light: var(--bg-card-dark);
+    --text-primary: var(--text-on-dark);
+    --text-secondary: var(--text-light);
+    --border-color: var(--border-color-dark);
   }
 }
 
-/* 애니메이션 */
+/* Animation */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .animate-on-scroll.visible {
@@ -667,73 +642,75 @@ body {
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
 
-/* New styles from the code block */
+/* Vercel-inspired components */
 .new-style {
-  /* Add your styles here */
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
 }
 
-/* 앱 이미지 스타일링 */
 .app-showcase {
   position: relative;
-  padding: var(--spacing-2xl) 0;
-  overflow: hidden;
+  padding: var(--space-16) 0;
 }
 
 .app-device {
   position: relative;
-  max-width: 300px;
+  max-width: 320px;
   margin: 0 auto;
-  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.15));
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .app-screenshot {
-  width: 100%;
-  height: auto;
-  border-radius: var(--border-radius-xl);
+  position: relative;
+  border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(45deg, var(--color-lapis-lazuli), var(--color-ruby));
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .app-screenshot img {
+  display: block;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  transition: transform var(--transition-normal);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .app-screenshot:hover img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .app-features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-xl);
-  padding: var(--spacing-2xl) 0;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 .app-feature {
-  text-align: center;
-  padding: var(--spacing-lg);
-  background: var(--color-background);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-small);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--accents-2);
 }
 
 .app-feature:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accents-3);
 }
 
 .app-feature-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto var(--spacing-md);
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-on-dark);
+  background-color: rgba(38, 97, 156, 0.1);
+  color: var(--primary-color);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 24px;
 } 
