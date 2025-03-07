@@ -713,4 +713,600 @@ body {
   border-radius: 12px;
   margin-bottom: 16px;
   font-size: 24px;
+}
+
+/* 모바일 앱 사용자 심리를 반영한 추가 스타일 */
+
+/* 시선 유도 요소 */
+.badge-new {
+  display: inline-block;
+  background-color: var(--geist-highlight-pink);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  animation: pulse 2s infinite;
+}
+
+.limited-offer-badge {
+  display: inline-block;
+  background-color: var(--geist-highlight-yellow);
+  color: var(--geist-foreground);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  animation: pulse 2s infinite;
+}
+
+/* 사회적 증명 요소 */
+.social-proof {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0 24px;
+  font-size: 14px;
+  color: var(--accents-5);
+}
+
+.users-count strong {
+  color: var(--geist-foreground);
+  font-weight: 600;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 전후 비교 시각화 */
+.before-after-label {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.before-after-label span {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.before-after-label .before {
+  background-color: var(--accents-2);
+  color: var(--accents-6);
+}
+
+.before-after-label .after {
+  background-color: var(--geist-success);
+  color: white;
+}
+
+/* 페인 포인트 카드 */
+.pain-points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.pain-point-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-small);
+  border: 1px solid var(--accents-2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pain-point-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.pain-point-card .emoji {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.solution-tag {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: var(--geist-success-light);
+  color: var(--geist-success-dark);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 기능 하이라이트 */
+.feature-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.feature-highlight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accents-1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feature-icon {
+  color: var(--primary-color);
+}
+
+/* 인터랙티브 타이머 */
+.app-timer.interactive {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.app-timer.interactive:hover {
+  transform: scale(1.05);
+}
+
+.timer-mode-switch {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.timer-mode-switch span {
+  padding: 4px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.timer-mode-switch span.active {
+  background-color: var(--accents-2);
+  font-weight: 600;
+}
+
+/* 통계 카드 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-small);
+  border: 1px solid var(--accents-2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accents-5);
+  margin-bottom: 16px;
+}
+
+/* 시나리오 탭 */
+.scenario-tabs {
+  margin-top: 32px;
+}
+
+.scenario-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.scenario-tab {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid var(--accents-2);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.scenario-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.scenario-tab:hover:not(.active) {
+  background-color: var(--accents-1);
+}
+
+.scenario-pane {
+  display: none;
+}
+
+.scenario-pane.active {
+  display: block;
+}
+
+.scenario-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+.scenario-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.scenario-steps .step {
+  background-color: var(--accents-1);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scenario-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.scenario-benefits li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+
+.scenario-benefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--geist-success);
+  font-weight: 600;
+}
+
+.user-quote {
+  background-color: var(--accents-1);
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 24px;
+  position: relative;
+}
+
+.user-quote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--accents-3);
+  font-family: Georgia, serif;
+}
+
+.quote-author {
+  margin-top: 8px;
+  font-style: italic;
+  color: var(--accents-5);
+}
+
+/* 사용자 후기 */
+.testimonial-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.before-after {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.before-after .before,
+.before-after .after {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.before-after .before {
+  background-color: var(--accents-2);
+}
+
+.before-after .after {
+  background-color: var(--geist-success-light);
+}
+
+.before-after .label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.before-after .arrow {
+  font-size: 24px;
+  color: var(--accents-4);
+}
+
+.usage-period {
+  font-size: 12px;
+  color: var(--accents-4);
+  margin-top: 4px;
+}
+
+/* 하이라이트 텍스트 */
+.highlight-text {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+/* 탭 내비게이션 */
+.tab-navigation {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid var(--accents-2);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.tab-button:hover:not(.active) {
+  background-color: var(--accents-1);
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.feature-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.feature-benefits li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+
+.feature-benefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--geist-success);
+  font-weight: 600;
+}
+
+/* 카운트다운 타이머 */
+.countdown-timer {
+  margin: 32px 0;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-value {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-label {
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* CTA 폼 */
+.cta-form {
+  display: flex;
+  max-width: 500px;
+  margin: 32px auto;
+}
+
+.cta-input {
+  flex: 1;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.cta-form .btn {
+  border-radius: 0 8px 8px 0;
+}
+
+/* 혜택 요약 */
+.benefits-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: 24px auto;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: white;
+}
+
+.benefit-icon {
+  color: var(--geist-success-light);
+  font-size: 18px;
+}
+
+/* 신뢰 배지 */
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.trust-badge {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.trust-badge::before {
+  content: '✓';
+  margin-right: 8px;
+}
+
+/* 남은 수량 표시 */
+.remaining-count {
+  margin-top: 24px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.remaining-count strong {
+  color: white;
+  font-weight: 700;
+}
+
+/* 애니메이션 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+  .pain-points-grid,
+  .stats-grid,
+  .testimonial-carousel {
+    grid-template-columns: 1fr;
+  }
+  
+  .scenario-nav,
+  .tab-navigation {
+    padding-bottom: 16px;
+  }
+  
+  .cta-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .cta-input {
+    border-radius: 8px;
+  }
+  
+  .cta-form .btn {
+    border-radius: 8px;
+  }
+  
+  .trust-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .benefits-summary {
+    padding: 0 16px;
+  }
+  
+  .timer-display {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 } 
