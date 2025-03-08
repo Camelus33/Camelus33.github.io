@@ -446,7 +446,100 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 스크롤 애니메이션
   initMiraScrollAnimation();
+
+  // 고급 배경 효과 초기화
+  initAdvancedBackground();
 });
+
+// 고급 배경 효과 초기화
+function initAdvancedBackground() {
+  // 패럴랙스 효과 - 마우스 움직임에 따른 배경 요소 반응
+  document.addEventListener('mousemove', function(e) {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    
+    // 오브 요소들에 패럴랙스 효과 적용
+    const orbs = document.querySelectorAll('.mira-orb');
+    orbs.forEach((orb, index) => {
+      const depth = 0.05 + (index * 0.01); // 각 오브마다 다른 깊이감
+      const moveX = (mouseX - 0.5) * depth * 100;
+      const moveY = (mouseY - 0.5) * depth * 100;
+      orb.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+    
+    // 회전 링에 패럴랙스 효과 적용
+    const rings = document.querySelectorAll('.mira-rotating-ring');
+    rings.forEach((ring, index) => {
+      const depth = 0.02 + (index * 0.005);
+      const moveX = (mouseX - 0.5) * depth * 50;
+      const moveY = (mouseY - 0.5) * depth * 50;
+      // 기존 회전 애니메이션 유지하면서 약간의 움직임 추가
+      ring.style.marginLeft = `${moveX}px`;
+      ring.style.marginTop = `${moveY}px`;
+    });
+  });
+  
+  // 스크롤 시 배경 효과 강화
+  window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.clientHeight;
+    const scrollPercent = scrollY / (documentHeight - windowHeight);
+    
+    // 배경색 및 그라데이션 효과 변화
+    const background = document.querySelector('.page-background');
+    if (background) {
+      const opacity = 0.8 - (scrollPercent * 0.2); // 스크롤에 따라 약간 투명해짐
+      background.style.opacity = opacity.toString();
+    }
+    
+    // 오브 요소들 회전 및 크기 변화
+    const orbs = document.querySelectorAll('.mira-orb');
+    orbs.forEach((orb, index) => {
+      const rotateVal = scrollY * 0.02 * (index + 1);
+      const scaleVal = 1 + (scrollPercent * 0.1 * (index % 2 === 0 ? 1 : -1));
+      orb.style.transform = `rotate(${rotateVal}deg) scale(${scaleVal})`;
+    });
+  });
+  
+  // 랜덤한 위치에 입자 추가 (패럴랙스를 위한 대체 방법)
+  if (typeof particlesJS === 'undefined') {
+    addParticles();
+  }
+}
+
+// 패럴랙스를 위한 대체 입자 시스템 (particles.js가 로드되지 않은 경우)
+function addParticles() {
+  const container = document.querySelector('.particles-container');
+  if (!container) return;
+  
+  // 20-30개의 입자 생성
+  const particleCount = Math.floor(Math.random() * 11) + 20;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    
+    // 랜덤 위치, 크기, 투명도
+    const size = Math.random() * 5 + 1;
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    const opacity = Math.random() * 0.1 + 0.02;
+    
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${posX}%`;
+    particle.style.top = `${posY}%`;
+    particle.style.opacity = opacity.toString();
+    
+    // 랜덤 애니메이션 속도와 딜레이
+    const duration = Math.random() * 30 + 15;
+    const delay = Math.random() * 10;
+    particle.style.animation = `float-advanced ${duration}s ease-in-out ${delay}s infinite`;
+    
+    container.appendChild(particle);
+  }
+}
 
 // 타이머 기능
 function initMiraTimer() {
@@ -475,6 +568,16 @@ function initMiraTimer() {
     if (isRunning) return;
     
     isRunning = true;
+    
+    // 시작 시 효과 추가
+    const timerElement = document.querySelector('.mira-timer');
+    if (timerElement) {
+      timerElement.style.boxShadow = '0 8px 30px rgba(99, 102, 241, 0.2)';
+      setTimeout(() => {
+        timerElement.style.boxShadow = '';
+      }, 1000);
+    }
+    
     timer = setInterval(() => {
       seconds--;
       updateTimerDisplay();
@@ -489,11 +592,23 @@ function initMiraTimer() {
           seconds = 120; // 2분 (메모 모드)
           modeSpans[0].classList.remove('active');
           modeSpans[1].classList.add('active');
+          
+          // 메모 모드로 전환 시 효과
+          timerDisplay.style.background = 'linear-gradient(135deg, #6366f1, #ec4899)';
+          setTimeout(() => {
+            timerDisplay.style.background = '';
+          }, 1000);
         } else {
           isReadingMode = true;
           seconds = 660; // 11분 (독서 모드)
           modeSpans[1].classList.remove('active');
           modeSpans[0].classList.add('active');
+          
+          // 독서 모드로 전환 시 효과
+          timerDisplay.style.background = 'linear-gradient(135deg, #3b82f6, #6366f1)';
+          setTimeout(() => {
+            timerDisplay.style.background = '';
+          }, 1000);
         }
         
         updateTimerDisplay();
@@ -505,6 +620,15 @@ function initMiraTimer() {
   function pauseTimer() {
     clearInterval(timer);
     isRunning = false;
+    
+    // 일시정지 효과
+    const pauseBtn = document.querySelector('.mira-timer-button.pause-button');
+    if (pauseBtn) {
+      pauseBtn.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        pauseBtn.style.transform = '';
+      }, 300);
+    }
   }
   
   // 타이머 리셋
@@ -519,6 +643,15 @@ function initMiraTimer() {
     }
     
     updateTimerDisplay();
+    
+    // 리셋 효과
+    const timerElement = document.querySelector('.mira-timer');
+    if (timerElement) {
+      timerElement.classList.add('shake');
+      setTimeout(() => {
+        timerElement.classList.remove('shake');
+      }, 500);
+    }
   }
   
   // 이벤트 리스너 등록
@@ -543,11 +676,28 @@ function initMiraTimer() {
       clearInterval(timer);
       isRunning = false;
       updateTimerDisplay();
+      
+      // 모드 전환 효과
+      span.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        span.style.transform = '';
+      }, 300);
     });
   });
   
   // 초기 타이머 표시 업데이트
   updateTimerDisplay();
+  
+  // 초기 애니메이션 효과
+  setTimeout(() => {
+    const playBtn = document.querySelector('.mira-timer-button.play-button');
+    if (playBtn) {
+      playBtn.classList.add('pulse-attention');
+      setTimeout(() => {
+        playBtn.classList.remove('pulse-attention');
+      }, 2000);
+    }
+  }, 1500);
 }
 
 // 탭 기능
@@ -577,6 +727,16 @@ function initMiraTabs() {
       const tabPane = document.getElementById(`${tabId}-tab`);
       if (tabPane) {
         tabPane.classList.add('active');
+        
+        // 탭 전환 효과
+        tabPane.style.opacity = '0';
+        tabPane.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          tabPane.style.opacity = '1';
+          tabPane.style.transform = 'translateY(0)';
+          tabPane.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        }, 50);
       }
     });
   });
@@ -593,16 +753,35 @@ function initMiraScrollAnimation() {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
+        
+        // 섹션 내부 요소들 순차적 애니메이션
+        const elements = entry.target.querySelectorAll('.mira-card, .mira-stat, .mira-testimonial');
+        elements.forEach((el, index) => {
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, 100 * (index + 1));
+        });
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: '0px 0px -10% 0px'
   });
   
   sections.forEach(section => {
     section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    
+    // 섹션 내부 요소들도 초기화
+    const elements = section.querySelectorAll('.mira-card, .mira-stat, .mira-testimonial');
+    elements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
     observer.observe(section);
   });
 } 
