@@ -433,4 +433,176 @@ function initNavigation() {
       }
     });
   });
+}
+
+// Mira Network 스타일 JavaScript
+
+document.addEventListener('DOMContentLoaded', function() {
+  // 타이머 초기화
+  initMiraTimer();
+  
+  // 탭 기능 초기화
+  initMiraTabs();
+  
+  // 스크롤 애니메이션
+  initMiraScrollAnimation();
+});
+
+// 타이머 기능
+function initMiraTimer() {
+  const timerDisplay = document.querySelector('.mira-timer-display');
+  const playButton = document.querySelector('.mira-timer-button.play-button');
+  const pauseButton = document.querySelector('.mira-timer-button.pause-button');
+  const resetButton = document.querySelector('.mira-timer-button.reset-button');
+  const modeSpans = document.querySelectorAll('.mira-timer-mode span');
+  
+  if (!timerDisplay || !playButton || !pauseButton || !resetButton) return;
+  
+  let timer;
+  let seconds = 660; // 11분 (독서 모드)
+  let isRunning = false;
+  let isReadingMode = true;
+  
+  // 타이머 표시 업데이트
+  function updateTimerDisplay() {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    timerDisplay.textContent = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  }
+  
+  // 타이머 시작
+  function startTimer() {
+    if (isRunning) return;
+    
+    isRunning = true;
+    timer = setInterval(() => {
+      seconds--;
+      updateTimerDisplay();
+      
+      if (seconds <= 0) {
+        clearInterval(timer);
+        isRunning = false;
+        
+        // 모드 전환 (독서 <-> 메모)
+        if (isReadingMode) {
+          isReadingMode = false;
+          seconds = 120; // 2분 (메모 모드)
+          modeSpans[0].classList.remove('active');
+          modeSpans[1].classList.add('active');
+        } else {
+          isReadingMode = true;
+          seconds = 660; // 11분 (독서 모드)
+          modeSpans[1].classList.remove('active');
+          modeSpans[0].classList.add('active');
+        }
+        
+        updateTimerDisplay();
+      }
+    }, 1000);
+  }
+  
+  // 타이머 일시정지
+  function pauseTimer() {
+    clearInterval(timer);
+    isRunning = false;
+  }
+  
+  // 타이머 리셋
+  function resetTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    
+    if (isReadingMode) {
+      seconds = 660; // 11분 (독서 모드)
+    } else {
+      seconds = 120; // 2분 (메모 모드)
+    }
+    
+    updateTimerDisplay();
+  }
+  
+  // 이벤트 리스너 등록
+  playButton.addEventListener('click', startTimer);
+  pauseButton.addEventListener('click', pauseTimer);
+  resetButton.addEventListener('click', resetTimer);
+  
+  // 모드 전환 이벤트
+  modeSpans.forEach((span, index) => {
+    span.addEventListener('click', () => {
+      modeSpans.forEach(s => s.classList.remove('active'));
+      span.classList.add('active');
+      
+      if (index === 0) { // 독서 모드
+        isReadingMode = true;
+        seconds = 660; // 11분
+      } else { // 메모 모드
+        isReadingMode = false;
+        seconds = 120; // 2분
+      }
+      
+      clearInterval(timer);
+      isRunning = false;
+      updateTimerDisplay();
+    });
+  });
+  
+  // 초기 타이머 표시 업데이트
+  updateTimerDisplay();
+}
+
+// 탭 기능
+function initMiraTabs() {
+  const tabs = document.querySelectorAll('.mira-tab');
+  
+  if (!tabs.length) return;
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabId = tab.getAttribute('data-tab');
+      
+      // 모든 탭 비활성화
+      document.querySelectorAll('.mira-tab').forEach(t => {
+        t.classList.remove('active');
+      });
+      
+      // 모든 탭 패널 숨기기
+      document.querySelectorAll('.mira-tab-pane').forEach(p => {
+        p.classList.remove('active');
+      });
+      
+      // 선택한 탭 활성화
+      tab.classList.add('active');
+      
+      // 선택한 탭 패널 표시
+      const tabPane = document.getElementById(`${tabId}-tab`);
+      if (tabPane) {
+        tabPane.classList.add('active');
+      }
+    });
+  });
+}
+
+// 스크롤 애니메이션
+function initMiraScrollAnimation() {
+  const sections = document.querySelectorAll('.mira-section');
+  
+  if (!sections.length) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  sections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(section);
+  });
 } 
