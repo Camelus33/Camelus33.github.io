@@ -74,9 +74,9 @@ body.mira-style {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: -5; /* 더 뒤로 보냄 */
   background: linear-gradient(125deg, #f5f7fa 0%, #e4e8ec 25%, #ecf0f3 50%, #e2e8f0 75%, #f8fafc 100%);
-  opacity: 0.8;
+  opacity: 0.9; /* 불투명도 높임 */
 }
 
 /* 미묘한 그리드 패턴 */
@@ -114,8 +114,8 @@ body.mira-style {
   position: fixed;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.25;
-  z-index: -1;
+  opacity: 0.15; /* 투명도를 더 높임 */
+  z-index: -4;
   mix-blend-mode: multiply;
 }
 
@@ -185,8 +185,8 @@ body.mira-style {
 /* 미래적 선 효과 */
 .mira-line {
   position: fixed;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+  z-index: -3;
 }
 
 .mira-line-1 {
@@ -249,9 +249,9 @@ body.mira-style {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.03); /* 더 투명하게 */
   border-radius: 50%;
-  z-index: -1;
+  z-index: -3;
 }
 
 .mira-rotating-ring-1 {
@@ -2033,7 +2033,14 @@ a:hover {
 /* 헤더 */
 .site-header {
   padding: var(--spacing-4) 0;
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--mira-shadow-sm);
 }
 
 .header-inner {
@@ -2084,6 +2091,14 @@ a:hover {
   padding: 6rem 0;
   text-align: center;
   position: relative;
+  z-index: 5; /* 앞으로 가져옴 */
+  background: rgba(255, 255, 255, 0.5); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--mira-radius-lg);
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--mira-shadow-md);
 }
 
 .mira-hero-content {
@@ -2149,18 +2164,19 @@ a:hover {
 
 /* 타이머 */
 .mira-timer {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px); /* 더 강한 블러 효과 */
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--mira-radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 2.5rem;
   margin: 3rem auto;
-  max-width: 400px;
+  max-width: 450px; /* 약간 더 넓게 */
   box-shadow: var(--mira-shadow-lg);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  z-index: 10; /* 타이머는 항상 최상위로 */
 }
 
 .mira-timer::before {
@@ -2269,12 +2285,29 @@ a:hover {
 .mira-section {
   padding: 6rem 0;
   position: relative;
+  z-index: 2; /* 콘텐츠를 앞으로 */
+  margin: 2rem 0;
+  position: relative;
 }
 
 .mira-section-alt {
-  background: var(--mira-gradient-subtle);
+  background: rgba(249, 250, 251, 0.7); /* 투명도 있는 배경 */
+  backdrop-filter: blur(10px); /* 배경 블러 효과 */
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--mira-radius-lg);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--mira-shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.mira-section:not(.mira-section-alt) {
+  background: rgba(255, 255, 255, 0.65); /* 투명도 있는 배경 */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--mira-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--mira-shadow-sm);
 }
 
 .mira-section-title {
@@ -2321,11 +2354,11 @@ a:hover {
 }
 
 .mira-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--mira-radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 2.5rem;
   transition: all 0.3s ease;
   position: relative;
@@ -2436,11 +2469,11 @@ a:hover {
 .mira-stat {
   text-align: center;
   padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--mira-radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: var(--mira-shadow-sm);
   transition: all 0.3s ease;
   position: relative;
@@ -2815,8 +2848,12 @@ a:hover {
 /* 푸터 */
 .site-footer {
   padding: var(--spacing-12) 0;
-  background-color: var(--color-background-alt);
-  border-top: 1px solid var(--color-border);
+  background: rgba(247, 249, 252, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 10;
 }
 
 .footer-content {
@@ -3225,4 +3262,320 @@ p,
 .mira-quote-author {
   font-family: var(--mira-font-kr-primary), var(--mira-font-kr-secondary), var(--mira-font-sans);
   letter-spacing: -0.01em;
+}
+
+/* 확장된 타이머 시스템 */
+.advanced-timer-container {
+  width: 100%;
+  max-width: 650px;
+  margin: 3rem auto;
+  position: relative;
+  z-index: 10;
+}
+
+.advanced-timer {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--mira-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  box-shadow: var(--mira-shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 타이머 헤더 */
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.timer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--mira-color-text);
+}
+
+.timer-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timer-progress-bar {
+  width: 150px;
+  height: 6px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.timer-progress-fill {
+  height: 100%;
+  background: var(--mira-gradient-primary);
+  width: 0%;
+  transition: width 1s linear;
+}
+
+.timer-progress-text {
+  font-size: 0.9rem;
+  color: var(--mira-color-text-secondary);
+}
+
+/* 타이머 디스플레이 */
+.timer-display-large {
+  font-size: 5rem;
+  font-weight: 700;
+  font-family: var(--mira-font-mono);
+  text-align: center;
+  margin: 1.5rem 0;
+  background: var(--mira-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+/* 타이머 컨트롤 */
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.timer-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--mira-gradient-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+  font-size: 1.125rem;
+}
+
+.timer-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+}
+
+.timer-button:active {
+  transform: scale(0.95);
+}
+
+.timer-button.secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--mira-color-accent);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* 타이머 상태 표시 */
+.timer-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--mira-color-text-secondary);
+}
+
+.timer-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.status-reading {
+  background-color: #4f46e5;
+}
+
+.status-memo {
+  background-color: #ec4899;
+}
+
+.status-idle {
+  background-color: #9ca3af;
+}
+
+/* 메모 시스템 */
+.memo-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--mira-radius-md);
+  margin-top: 1rem;
+}
+
+.memo-container.active {
+  max-height: 400px;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.memo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.memo-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--mira-color-text);
+}
+
+.memo-content {
+  padding: 1rem;
+}
+
+.memo-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--mira-radius-sm);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--mira-color-text);
+  font-family: var(--mira-font-sans);
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.memo-textarea:focus {
+  outline: none;
+  border-color: var(--mira-color-accent);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.memo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.memo-counter {
+  font-size: 0.9rem;
+  color: var(--mira-color-text-secondary);
+}
+
+.memo-button {
+  padding: 0.5rem 1.25rem;
+  background: var(--mira-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.memo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* 콤보 시스템 */
+.combo-container {
+  position: relative;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.combo-label {
+  font-size: 0.9rem;
+  color: var(--mira-color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.combo-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--mira-color-accent);
+}
+
+.combo-multiplier {
+  font-size: 1rem;
+  color: var(--mira-color-text-secondary);
+}
+
+.combo-bar {
+  height: 6px;
+  width: 100%;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 3px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.combo-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #ec4899);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* 애니메이션 효과 */
+@keyframes pulse-combo {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.pulse-combo {
+  animation: pulse-combo 0.5s ease;
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.slide-up {
+  animation: slide-up 0.5s ease forwards;
+}
+
+/* 완료 아이콘 */
+.completion-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background: var(--mira-color-accent);
+  color: white;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.completion-icon.show {
+  opacity: 1;
+  transform: scale(1);
 }

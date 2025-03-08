@@ -438,18 +438,296 @@ function initNavigation() {
 // Mira Network 스타일 JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-  // 타이머 초기화
-  initMiraTimer();
-  
-  // 탭 기능 초기화
-  initMiraTabs();
-  
   // 스크롤 애니메이션
   initMiraScrollAnimation();
 
   // 고급 배경 효과 초기화
   initAdvancedBackground();
+  
+  // 타이머 시스템 초기화
+  initAdvancedTimer();
+  
+  // 탭 기능 초기화
+  initMiraTabs();
 });
+
+// 고급 타이머 시스템
+function initAdvancedTimer() {
+  // DOM 요소 가져오기
+  const timerDisplay = document.getElementById('timer-display');
+  const playButton = document.getElementById('play-button');
+  const pauseButton = document.getElementById('pause-button');
+  const resetButton = document.getElementById('reset-button');
+  const statusIndicator = document.getElementById('status-indicator');
+  const statusText = document.getElementById('status-text');
+  const timerModeText = document.getElementById('timer-mode-text');
+  const timerProgressFill = document.getElementById('timer-progress-fill');
+  const timerProgressText = document.getElementById('timer-progress-text');
+  const completionIcon = document.getElementById('completion-icon');
+  
+  // 메모 요소
+  const memoContainer = document.getElementById('memo-container');
+  const memoTextArea = document.getElementById('memo-textarea');
+  const memoCounter = document.getElementById('memo-counter');
+  const memoTime = document.getElementById('memo-time');
+  const memoSaveButton = document.getElementById('memo-save');
+  
+  // 콤보 요소
+  const comboCount = document.getElementById('combo-count');
+  const comboMultiplier = document.getElementById('combo-multiplier');
+  const comboFill = document.getElementById('combo-fill');
+  
+  // 없으면 종료
+  if (!timerDisplay || !playButton || !pauseButton || !resetButton) return;
+  
+  // 타이머 변수
+  let timer;
+  let totalSeconds = 660; // 11분 (독서 모드)
+  let currentSeconds = totalSeconds;
+  let isRunning = false;
+  let isReadingMode = true;
+  let sessionCombo = 0;
+  let sessionScore = 0;
+  let multiplier = 1.0;
+  let memoStarted = false;
+  let readingCompleted = false;
+  let memoCompleted = false;
+  
+  // 타이머 표시 업데이트
+  function updateTimerDisplay() {
+    const minutes = Math.floor(currentSeconds / 60);
+    const seconds = currentSeconds % 60;
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    
+    // 프로그레스 바 업데이트
+    const progressPercent = ((totalSeconds - currentSeconds) / totalSeconds) * 100;
+    timerProgressFill.style.width = `${progressPercent}%`;
+    timerProgressText.textContent = `${Math.round(progressPercent)}%`;
+  }
+  
+  // 상태 표시 업데이트
+  function updateStatusDisplay(status) {
+    statusIndicator.className = 'timer-status-indicator';
+    
+    switch (status) {
+      case 'reading':
+        statusIndicator.classList.add('status-reading');
+        statusText.textContent = '독서 중...';
+        break;
+      case 'memo':
+        statusIndicator.classList.add('status-memo');
+        statusText.textContent = '메모 작성 중...';
+        break;
+      case 'paused':
+        statusIndicator.classList.add('status-idle');
+        statusText.textContent = '일시 정지됨';
+        break;
+      default:
+        statusIndicator.classList.add('status-idle');
+        statusText.textContent = '준비 완료';
+    }
+  }
+  
+  // 타이머 시작
+  function startTimer() {
+    if (isRunning) return;
+    
+    isRunning = true;
+    
+    // 상태 업데이트
+    if (isReadingMode) {
+      updateStatusDisplay('reading');
+    } else {
+      updateStatusDisplay('memo');
+    }
+    
+    timer = setInterval(() => {
+      currentSeconds--;
+      updateTimerDisplay();
+      
+      // 타이머 종료 처리
+      if (currentSeconds <= 0) {
+        clearInterval(timer);
+        isRunning = false;
+        
+        // 모드 전환 (독서 <-> 메모)
+        if (isReadingMode) {
+          // 독서 모드 -> 메모 모드 전환
+          isReadingMode = false;
+          totalSeconds = 120; // 2분 (메모 모드)
+          currentSeconds = totalSeconds;
+          timerModeText.textContent = '메모 모드';
+          timerModeText.style.color = '#ec4899';
+          updateStatusDisplay('memo');
+          
+          // 메모 UI 표시
+          memoContainer.classList.add('active');
+          memoStarted = true;
+          
+          // 독서 완료 표시
+          readingCompleted = true;
+          completionIcon.classList.add('show');
+          
+          // 메모 타이머 시작
+          updateTimerDisplay();
+          startTimer();
+        } else {
+          // 메모 모드 완료
+          timerModeText.textContent = '세션 완료';
+          timerModeText.style.color = '';
+          updateStatusDisplay('idle');
+          
+          // 메모 완료 처리
+          memoCompleted = true;
+          
+          // 콤보 증가
+          sessionCombo++;
+          updateCombo(sessionCombo);
+          
+          // 완료 효과
+          playCompletionEffect();
+        }
+      }
+    }, 1000);
+  }
+  
+  // 타이머 일시정지
+  function pauseTimer() {
+    if (!isRunning) return;
+    
+    clearInterval(timer);
+    isRunning = false;
+    updateStatusDisplay('paused');
+  }
+  
+  // 타이머 리셋
+  function resetTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    
+    if (isReadingMode) {
+      totalSeconds = 660; // 11분 (독서 모드)
+      timerModeText.textContent = '독서 모드';
+      timerModeText.style.color = '';
+    } else {
+      totalSeconds = 120; // 2분 (메모 모드)
+      timerModeText.textContent = '메모 모드';
+      timerModeText.style.color = '#ec4899';
+    }
+    
+    currentSeconds = totalSeconds;
+    updateTimerDisplay();
+    updateStatusDisplay('idle');
+    
+    // 메모 상태 초기화
+    if (!isReadingMode && memoContainer.classList.contains('active')) {
+      // 이미 메모 모드라면 초기화하지 않음
+    } else {
+      memoContainer.classList.remove('active');
+      memoTextArea.value = '';
+      memoCounter.textContent = '0 자';
+    }
+  }
+  
+  // 콤보 시스템 업데이트
+  function updateCombo(combo) {
+    comboCount.textContent = combo;
+    
+    // 콤보에 따른 배율 계산 (최대 5배)
+    multiplier = Math.min(1 + (combo * 0.2), 5).toFixed(1);
+    comboMultiplier.textContent = `×${multiplier} 점수`;
+    
+    // 콤보 바 업데이트
+    const fillPercent = Math.min((combo / 20) * 100, 100);
+    comboFill.style.width = `${fillPercent}%`;
+    
+    // 콤보 애니메이션
+    comboCount.classList.add('pulse-combo');
+    setTimeout(() => {
+      comboCount.classList.remove('pulse-combo');
+    }, 500);
+  }
+  
+  // 완료 효과
+  function playCompletionEffect() {
+    // 완료 메시지와 효과 표시
+    let points = 100 * parseFloat(multiplier);
+    
+    // 점수 팝업 생성
+    const pointsPopup = document.createElement('div');
+    pointsPopup.className = 'points-popup slide-up';
+    pointsPopup.innerHTML = `+${points} 포인트!<br><span style="font-size: 0.9rem; opacity: 0.8;">세션 완료: ${multiplier}배 점수</span>`;
+    pointsPopup.style.position = 'absolute';
+    pointsPopup.style.top = '0';
+    pointsPopup.style.left = '50%';
+    pointsPopup.style.transform = 'translateX(-50%)';
+    pointsPopup.style.background = 'linear-gradient(135deg, #4f46e5, #ec4899)';
+    pointsPopup.style.color = 'white';
+    pointsPopup.style.padding = '1rem 2rem';
+    pointsPopup.style.borderRadius = '2rem';
+    pointsPopup.style.fontWeight = 'bold';
+    pointsPopup.style.boxShadow = '0 10px 25px rgba(99, 102, 241, 0.3)';
+    pointsPopup.style.opacity = '0';
+    
+    document.querySelector('.advanced-timer').appendChild(pointsPopup);
+    
+    // 애니메이션
+    setTimeout(() => {
+      pointsPopup.style.opacity = '1';
+      pointsPopup.style.top = '-80px';
+    }, 10);
+    
+    // 3초 후 제거
+    setTimeout(() => {
+      pointsPopup.style.opacity = '0';
+      pointsPopup.style.top = '-100px';
+      setTimeout(() => {
+        pointsPopup.remove();
+      }, 500);
+    }, 3000);
+  }
+  
+  // 메모 텍스트 카운터
+  memoTextArea.addEventListener('input', function() {
+    const count = this.value.length;
+    memoCounter.textContent = `${count} 자`;
+  });
+  
+  // 메모 저장
+  memoSaveButton.addEventListener('click', function() {
+    if (memoStarted && !memoCompleted) {
+      clearInterval(timer);
+      isRunning = false;
+      currentSeconds = 0;
+      updateTimerDisplay();
+      
+      // 메모 완료 처리
+      timerModeText.textContent = '세션 완료';
+      timerModeText.style.color = '';
+      updateStatusDisplay('idle');
+      
+      // 메모 완료 표시
+      memoCompleted = true;
+      
+      // 콤보 증가
+      sessionCombo++;
+      updateCombo(sessionCombo);
+      
+      // 완료 효과
+      playCompletionEffect();
+    }
+  });
+  
+  // 이벤트 리스너 등록
+  playButton.addEventListener('click', startTimer);
+  pauseButton.addEventListener('click', pauseTimer);
+  resetButton.addEventListener('click', resetTimer);
+  
+  // 초기 표시 업데이트
+  updateTimerDisplay();
+  updateStatusDisplay('idle');
+  updateCombo(sessionCombo);
+}
 
 // 고급 배경 효과 초기화
 function initAdvancedBackground() {
@@ -489,7 +767,7 @@ function initAdvancedBackground() {
     // 배경색 및 그라데이션 효과 변화
     const background = document.querySelector('.page-background');
     if (background) {
-      const opacity = 0.8 - (scrollPercent * 0.2); // 스크롤에 따라 약간 투명해짐
+      const opacity = 0.9 - (scrollPercent * 0.1); // 스크롤에 따라 약간 투명해짐
       background.style.opacity = opacity.toString();
     }
     
@@ -539,165 +817,6 @@ function addParticles() {
     
     container.appendChild(particle);
   }
-}
-
-// 타이머 기능
-function initMiraTimer() {
-  const timerDisplay = document.querySelector('.mira-timer-display');
-  const playButton = document.querySelector('.mira-timer-button.play-button');
-  const pauseButton = document.querySelector('.mira-timer-button.pause-button');
-  const resetButton = document.querySelector('.mira-timer-button.reset-button');
-  const modeSpans = document.querySelectorAll('.mira-timer-mode span');
-  
-  if (!timerDisplay || !playButton || !pauseButton || !resetButton) return;
-  
-  let timer;
-  let seconds = 660; // 11분 (독서 모드)
-  let isRunning = false;
-  let isReadingMode = true;
-  
-  // 타이머 표시 업데이트
-  function updateTimerDisplay() {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    timerDisplay.textContent = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-  }
-  
-  // 타이머 시작
-  function startTimer() {
-    if (isRunning) return;
-    
-    isRunning = true;
-    
-    // 시작 시 효과 추가
-    const timerElement = document.querySelector('.mira-timer');
-    if (timerElement) {
-      timerElement.style.boxShadow = '0 8px 30px rgba(99, 102, 241, 0.2)';
-      setTimeout(() => {
-        timerElement.style.boxShadow = '';
-      }, 1000);
-    }
-    
-    timer = setInterval(() => {
-      seconds--;
-      updateTimerDisplay();
-      
-      if (seconds <= 0) {
-        clearInterval(timer);
-        isRunning = false;
-        
-        // 모드 전환 (독서 <-> 메모)
-        if (isReadingMode) {
-          isReadingMode = false;
-          seconds = 120; // 2분 (메모 모드)
-          modeSpans[0].classList.remove('active');
-          modeSpans[1].classList.add('active');
-          
-          // 메모 모드로 전환 시 효과
-          timerDisplay.style.background = 'linear-gradient(135deg, #6366f1, #ec4899)';
-          setTimeout(() => {
-            timerDisplay.style.background = '';
-          }, 1000);
-        } else {
-          isReadingMode = true;
-          seconds = 660; // 11분 (독서 모드)
-          modeSpans[1].classList.remove('active');
-          modeSpans[0].classList.add('active');
-          
-          // 독서 모드로 전환 시 효과
-          timerDisplay.style.background = 'linear-gradient(135deg, #3b82f6, #6366f1)';
-          setTimeout(() => {
-            timerDisplay.style.background = '';
-          }, 1000);
-        }
-        
-        updateTimerDisplay();
-      }
-    }, 1000);
-  }
-  
-  // 타이머 일시정지
-  function pauseTimer() {
-    clearInterval(timer);
-    isRunning = false;
-    
-    // 일시정지 효과
-    const pauseBtn = document.querySelector('.mira-timer-button.pause-button');
-    if (pauseBtn) {
-      pauseBtn.style.transform = 'scale(1.2)';
-      setTimeout(() => {
-        pauseBtn.style.transform = '';
-      }, 300);
-    }
-  }
-  
-  // 타이머 리셋
-  function resetTimer() {
-    clearInterval(timer);
-    isRunning = false;
-    
-    if (isReadingMode) {
-      seconds = 660; // 11분 (독서 모드)
-    } else {
-      seconds = 120; // 2분 (메모 모드)
-    }
-    
-    updateTimerDisplay();
-    
-    // 리셋 효과
-    const timerElement = document.querySelector('.mira-timer');
-    if (timerElement) {
-      timerElement.classList.add('shake');
-      setTimeout(() => {
-        timerElement.classList.remove('shake');
-      }, 500);
-    }
-  }
-  
-  // 이벤트 리스너 등록
-  playButton.addEventListener('click', startTimer);
-  pauseButton.addEventListener('click', pauseTimer);
-  resetButton.addEventListener('click', resetTimer);
-  
-  // 모드 전환 이벤트
-  modeSpans.forEach((span, index) => {
-    span.addEventListener('click', () => {
-      modeSpans.forEach(s => s.classList.remove('active'));
-      span.classList.add('active');
-      
-      if (index === 0) { // 독서 모드
-        isReadingMode = true;
-        seconds = 660; // 11분
-      } else { // 메모 모드
-        isReadingMode = false;
-        seconds = 120; // 2분
-      }
-      
-      clearInterval(timer);
-      isRunning = false;
-      updateTimerDisplay();
-      
-      // 모드 전환 효과
-      span.style.transform = 'scale(1.1)';
-      setTimeout(() => {
-        span.style.transform = '';
-      }, 300);
-    });
-  });
-  
-  // 초기 타이머 표시 업데이트
-  updateTimerDisplay();
-  
-  // 초기 애니메이션 효과
-  setTimeout(() => {
-    const playBtn = document.querySelector('.mira-timer-button.play-button');
-    if (playBtn) {
-      playBtn.classList.add('pulse-attention');
-      setTimeout(() => {
-        playBtn.classList.remove('pulse-attention');
-      }, 2000);
-    }
-  }, 1500);
 }
 
 // 탭 기능

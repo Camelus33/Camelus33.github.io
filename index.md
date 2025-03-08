@@ -6,6 +6,64 @@ cta_button_text: 앱 출시 알림 신청하기
 cta_button_url: /contact
 ---
 
+<!-- 고급 타이머 시스템 -->
+<div class="advanced-timer-container">
+  <div class="advanced-timer">
+    <div class="timer-header">
+      <div class="timer-title">
+        <span id="timer-mode-text">독서 모드</span>
+        <span class="completion-icon" id="completion-icon"><i class="fas fa-check"></i></span>
+      </div>
+      <div class="timer-progress">
+        <div class="timer-progress-bar">
+          <div class="timer-progress-fill" id="timer-progress-fill"></div>
+        </div>
+        <div class="timer-progress-text" id="timer-progress-text">0%</div>
+      </div>
+    </div>
+    
+    <div class="timer-display-large" id="timer-display">11:00</div>
+    
+    <div class="timer-controls">
+      <button class="timer-button" id="play-button"><i class="fas fa-play"></i></button>
+      <button class="timer-button" id="pause-button"><i class="fas fa-pause"></i></button>
+      <button class="timer-button secondary" id="reset-button"><i class="fas fa-redo"></i></button>
+    </div>
+    
+    <div class="timer-status">
+      <div class="timer-status-indicator status-idle" id="status-indicator"></div>
+      <div id="status-text">준비 완료</div>
+    </div>
+    
+    <!-- 메모 시스템 -->
+    <div class="memo-container" id="memo-container">
+      <div class="memo-header">
+        <div class="memo-title">제텔카스텐 메모 작성</div>
+        <div class="memo-time" id="memo-time">2:00</div>
+      </div>
+      <div class="memo-content">
+        <textarea class="memo-textarea" id="memo-textarea" placeholder="읽은 내용에 대한 메모를 작성하세요..."></textarea>
+      </div>
+      <div class="memo-footer">
+        <div class="memo-counter" id="memo-counter">0 자</div>
+        <button class="memo-button" id="memo-save">저장하기</button>
+      </div>
+    </div>
+    
+    <!-- 콤보 시스템 -->
+    <div class="combo-container">
+      <div class="combo-label">현재 콤보</div>
+      <div class="combo-counter">
+        <span id="combo-count">0</span>
+        <span class="combo-multiplier" id="combo-multiplier">×1.0 점수</span>
+      </div>
+      <div class="combo-bar">
+        <div class="combo-fill" id="combo-fill"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- 페인 포인트 섹션 -->
 <section class="mira-section">
   <div class="container">
