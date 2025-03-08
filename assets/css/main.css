@@ -74,9 +74,18 @@ body.mira-style {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -5; /* 더 뒤로 보냄 */
+  z-index: -10; /* 더 뒤로 보냄 */
+  /* 기본 그라데이션 배경 */
   background: linear-gradient(125deg, #f5f7fa 0%, #e4e8ec 25%, #ecf0f3 50%, #e2e8f0 75%, #f8fafc 100%);
-  opacity: 0.9; /* 불투명도 높임 */
+  /* 미래형 디자인 이미지 배경 추가 */
+  background-image: 
+    url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=1200'), /* 추상적 미래형 배경 */
+    linear-gradient(125deg, rgba(245, 247, 250, 0.85) 0%, rgba(228, 232, 236, 0.85) 25%, rgba(236, 240, 243, 0.85) 50%, rgba(226, 232, 240, 0.85) 75%, rgba(248, 250, 252, 0.85) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  opacity: 0.95; /* 배경 이미지 불투명도 */
+  pointer-events: none; /* 클릭 이벤트 방지 */
 }
 
 /* 미묘한 그리드 패턴 */
@@ -88,10 +97,11 @@ body.mira-style {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
   z-index: -1;
+  pointer-events: none;
 }
 
 /* 미래적 그라디언트 효과 */
@@ -103,10 +113,27 @@ body.mira-style {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.03) 0%, transparent 30%),
-    radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.03) 0%, transparent 60%);
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.05) 0%, transparent 60%);
   z-index: -1;
+  pointer-events: none;
+}
+
+/* 추가 미래형 디지털 라인 */
+.digital-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -9;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 /* 확장된 오브 효과 */
@@ -114,9 +141,10 @@ body.mira-style {
   position: fixed;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.15; /* 투명도를 더 높임 */
-  z-index: -4;
+  opacity: 0.08; /* 더 투명하게 조정 */
+  z-index: -12; /* 더 뒤로 보냄 */
   mix-blend-mode: multiply;
+  pointer-events: none; /* 클릭 이벤트 방지 */
 }
 
 .mira-orb-1 {
@@ -171,8 +199,9 @@ body.mira-style {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -15; /* 더 뒤로 보냄 */
   overflow: hidden;
+  pointer-events: none; /* 클릭 이벤트 방지 */
 }
 
 .particle {
@@ -180,13 +209,15 @@ body.mira-style {
   background: linear-gradient(to right, rgba(99, 102, 241, 0.3), rgba(59, 130, 246, 0.2));
   border-radius: 50%;
   mix-blend-mode: screen;
+  pointer-events: none; /* 클릭 이벤트 방지 */
 }
 
 /* 미래적 선 효과 */
 .mira-line {
   position: fixed;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
-  z-index: -3;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.02), transparent); /* 더 투명하게 조정 */
+  z-index: -13; /* 더 뒤로 보냄 */
+  pointer-events: none; /* 클릭 이벤트 방지 */
 }
 
 .mira-line-1 {
@@ -249,9 +280,10 @@ body.mira-style {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(99, 102, 241, 0.03); /* 더 투명하게 */
+  border: 1px solid rgba(99, 102, 241, 0.02); /* 더 투명하게 */
   border-radius: 50%;
-  z-index: -3;
+  z-index: -14; /* 더 뒤로 보냄 */
+  pointer-events: none; /* 클릭 이벤트 방지 */
 }
 
 .mira-rotating-ring-1 {
@@ -2032,15 +2064,13 @@ a:hover {
 
 /* 헤더 */
 .site-header {
-  padding: var(--spacing-4) 0;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: var(--mira-shadow-sm);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  margin-bottom: var(--space-8);
 }
 
 .header-inner {
@@ -2088,17 +2118,15 @@ a:hover {
 
 /* 히어로 섹션 */
 .mira-hero {
-  padding: 6rem 0;
-  text-align: center;
   position: relative;
-  z-index: 5; /* 앞으로 가져옴 */
-  background: rgba(255, 255, 255, 0.5); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: var(--mira-radius-lg);
-  margin: 2rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: var(--mira-shadow-md);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-16) 0;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
 }
 
 .mira-hero-content {
@@ -2283,31 +2311,25 @@ a:hover {
 
 /* 섹션 */
 .mira-section {
-  padding: 6rem 0;
   position: relative;
-  z-index: 2; /* 콘텐츠를 앞으로 */
-  margin: 2rem 0;
-  position: relative;
+  z-index: 20; /* z-index 증가 */
+  padding: var(--space-20) 0;
+  margin: var(--space-16) 0;
+  border-radius: var(--radius-xl);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
 }
 
 .mira-section-alt {
-  background: rgba(249, 250, 251, 0.7); /* 투명도 있는 배경 */
-  backdrop-filter: blur(10px); /* 배경 블러 효과 */
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: var(--mira-radius-lg);
   position: relative;
-  overflow: hidden;
-  box-shadow: var(--mira-shadow-sm);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.mira-section:not(.mira-section-alt) {
-  background: rgba(255, 255, 255, 0.65); /* 투명도 있는 배경 */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--mira-radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: var(--mira-shadow-sm);
+  z-index: 20; /* z-index 증가 */
+  padding: var(--space-20) 0;
+  margin: var(--space-16) 0;
+  border-radius: var(--radius-xl);
+  background: rgba(245, 247, 250, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
 }
 
 .mira-section-title {
@@ -3266,11 +3288,10 @@ p,
 
 /* 확장된 타이머 시스템 */
 .advanced-timer-container {
-  width: 100%;
-  max-width: 650px;
-  margin: 3rem auto;
   position: relative;
-  z-index: 10;
+  z-index: 30; /* 높은 z-index로 설정 */
+  margin: var(--space-8) auto var(--space-16);
+  max-width: 480px;
 }
 
 .advanced-timer {
@@ -3578,4 +3599,61 @@ p,
 .completion-icon.show {
   opacity: 1;
   transform: scale(1);
+}
+
+/* 고급 미래형 배경 이미지 효과 */
+.futuristic-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  z-index: -11;
+  opacity: 0.15;
+  filter: saturate(1.2) hue-rotate(10deg);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* 홀로그램 효과 */
+.hologram-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, rgba(0, 200, 255, 0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 0, 200, 0.02) 25%, transparent 25%);
+  background-size: 60px 60px;
+  z-index: -9;
+  animation: hologram-move 30s infinite linear;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes hologram-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+/* 미래형 점선 그리드 */
+.dot-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: -8;
+  opacity: 0.3;
+  pointer-events: none;
 }

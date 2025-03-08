@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initScenarioTabs();
   
   // Add any additional initialization here
+  
+  // 새로운 미래형 배경 효과 초기화
+  initFuturisticBackground();
 });
 
 /**
@@ -903,4 +906,114 @@ function initMiraScrollAnimation() {
     
     observer.observe(section);
   });
+}
+
+// 새로운 미래형 배경 효과 초기화 함수
+function initFuturisticBackground() {
+  // 마우스 움직임에 따른 홀로그램 효과 변화
+  document.addEventListener('mousemove', function(e) {
+    const hologramEffect = document.querySelector('.hologram-effect');
+    if (!hologramEffect) return;
+    
+    // 마우스 위치에 따라 홀로그램 효과 약간 이동
+    const moveX = (e.clientX / window.innerWidth - 0.5) * 10;
+    const moveY = (e.clientY / window.innerHeight - 0.5) * 10;
+    
+    hologramEffect.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+  
+  // 스크롤에 따른 배경 효과 변화
+  window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.clientHeight;
+    const scrollPercent = scrollY / (documentHeight - windowHeight);
+    
+    // 디지털 그리드 효과 변화
+    const digitalGrid = document.querySelector('.digital-grid');
+    if (digitalGrid) {
+      const opacity = 0.7 - (scrollPercent * 0.2);
+      digitalGrid.style.opacity = Math.max(0.3, opacity);
+      digitalGrid.style.transform = `scale(${1 + scrollPercent * 0.1})`;
+    }
+    
+    // 점선 그리드 효과 변화
+    const dotGrid = document.querySelector('.dot-grid');
+    if (dotGrid) {
+      const dotOpacity = 0.3 + (scrollPercent * 0.2);
+      dotGrid.style.opacity = Math.min(0.5, dotOpacity);
+      dotGrid.style.transform = `scale(${1 - scrollPercent * 0.05})`;
+    }
+    
+    // 미래형 이미지 효과 변화
+    const futuristicEffect = document.querySelector('.futuristic-effect');
+    if (futuristicEffect) {
+      const imageOpacity = 0.15 + (scrollPercent * 0.05);
+      futuristicEffect.style.opacity = Math.min(0.25, imageOpacity);
+      
+      // 스크롤에 따라 이미지 필터 변화
+      const hueRotate = 10 + (scrollPercent * 15);
+      futuristicEffect.style.filter = `saturate(${1.2 + scrollPercent * 0.3}) hue-rotate(${hueRotate}deg)`;
+    }
+  });
+  
+  // 랜덤한 위치에 빛나는 점 효과 추가
+  createShiningDots();
+}
+
+// 랜덤한 위치에 빛나는 점 효과 생성
+function createShiningDots() {
+  const dotsContainer = document.createElement('div');
+  dotsContainer.className = 'shining-dots-container';
+  dotsContainer.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -7;
+    pointer-events: none;
+  `;
+  
+  document.body.appendChild(dotsContainer);
+  
+  // 20-30개 사이의 빛나는 점 생성
+  const dotsCount = Math.floor(Math.random() * 11) + 20;
+  
+  for (let i = 0; i < dotsCount; i++) {
+    const dot = document.createElement('div');
+    const size = Math.random() * 3 + 1; // 1-4px
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const duration = Math.random() * 4 + 2; // 2-6s
+    const delay = Math.random() * 5;
+    
+    dot.className = 'shining-dot';
+    dot.style.cssText = `
+      position: absolute;
+      width: ${size}px;
+      height: ${size}px;
+      border-radius: 50%;
+      background-color: rgba(99, 102, 241, 0.7);
+      box-shadow: 0 0 ${size * 2}px rgba(99, 102, 241, 0.8);
+      left: ${x}%;
+      top: ${y}%;
+      opacity: 0;
+      animation: shine ${duration}s infinite ease-in-out ${delay}s;
+      pointer-events: none;
+    `;
+    
+    dotsContainer.appendChild(dot);
+  }
+  
+  // 빛나는 애니메이션 스타일 추가
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes shine {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.5); }
+    }
+  `;
+  
+  document.head.appendChild(style);
 } 
