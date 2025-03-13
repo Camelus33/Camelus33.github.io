@@ -1,0 +1,15 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="800" height="400" fill="#e0f2fe" />
+  
+  <!-- React 로고 스타일 요소 -->
+  <circle cx="400" cy="200" r="80" fill="none" stroke="#0ea5e9" stroke-width="10" />
+  <circle cx="400" cy="200" r="20" fill="#0ea5e9" />
+  <ellipse cx="400" cy="200" rx="140" ry="50" fill="none" stroke="#0ea5e9" stroke-width="10" transform="rotate(60 400 200)" />
+  <ellipse cx="400" cy="200" rx="140" ry="50" fill="none" stroke="#0ea5e9" stroke-width="10" transform="rotate(-60 400 200)" />
+  
+  <!-- 텍스트 -->
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#1e293b">
+    React Development
+  </text>
+</svg> 

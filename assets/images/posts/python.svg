@@ -1,0 +1,15 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect width="800" height="400" fill="#f0fdf4" />
+  
+  <!-- Python 로고 스타일 요소 -->
+  <path d="M350,150 C350,130 370,120 400,120 C430,120 450,130 450,150 L450,200 C450,220 430,230 400,230 L350,230 L350,250 C350,270 370,280 400,280 C430,280 450,270 450,250" 
+        fill="none" stroke="#16a34a" stroke-width="15" stroke-linejoin="round" />
+  <circle cx="375" cy="150" r="10" fill="#16a34a" />
+  <circle cx="425" cy="250" r="10" fill="#16a34a" />
+  
+  <!-- 텍스트 -->
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#1e293b">
+    Python Development
+  </text>
+</svg> 

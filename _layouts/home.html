@@ -2,80 +2,177 @@
 layout: default
 ---
 
-<!-- 미니멀 히어로 섹션 -->
-<section class="mira-hero">
+<!-- Blog Header -->
+<header class="blog-header">
   <div class="container">
-    <div class="mira-hero-content">
-      <h1 class="mira-title">{{ page.title }}</h1>
-      <p class="mira-description">{{ page.description }}</p>
-      
-      <!-- 독서 타이머 시연 -->
-      <div class="mira-timer">
-        <div class="mira-timer-display">11:00</div>
-        <div class="mira-timer-controls">
-          <button class="mira-timer-button play-button"><i class="fas fa-play"></i></button>
-          <button class="mira-timer-button pause-button"><i class="fas fa-pause"></i></button>
-          <button class="mira-timer-button reset-button"><i class="fas fa-redo"></i></button>
-        </div>
-        <div class="mira-timer-mode">
-          <span class="active">독서 모드</span>
-          <span>메모 모드</span>
-        </div>
+    <h1 class="blog-title">{{ page.title | default: site.title }}</h1>
+    <p class="blog-description">{{ page.description | default: site.description }}</p>
+  </div>
+</header>
+
+<!-- Featured Post -->
+{% assign featured_post = site.posts | first %}
+{% if featured_post %}
+<section class="container">
+  <div class="featured-post">
+    {% if featured_post.image %}
+    <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}" class="featured-post-image">
+    {% endif %}
+    <div class="featured-post-content">
+      <h2 class="featured-post-title">
+        <a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a>
+      </h2>
+      <p class="featured-post-excerpt">{{ featured_post.excerpt | strip_html | truncatewords: 30 }}</p>
+      <div class="featured-post-meta">
+        <span class="post-date">{{ featured_post.date | date: "%B %d, %Y" }}</span>
+        <span class="post-author">by {{ featured_post.author | default: site.author }}</span>
       </div>
-      
-      <div class="mira-social-proof">
-        <div class="users-count"><strong>2,451명</strong>이 이미 참여 중</div>
-        <div class="rating">⭐️ 4.9/5 <span class="reviews-count">(320+ 리뷰)</span></div>
-      </div>
-      
-      {% if page.cta_button_text %}
-      <div class="mira-cta">
-        <a href="{{ page.cta_button_url }}" class="mira-button primary">{{ page.cta_button_text }}</a>
-        <a href="#stats" class="mira-button secondary">효과 살펴보기</a>
-      </div>
-      {% endif %}
     </div>
   </div>
 </section>
+{% endif %}
 
-<!-- 메인 콘텐츠 -->
-{{ content }}
-
-<!-- 최신 블로그 포스트 섹션 -->
-<section class="mira-section">
-  <div class="container">
-    <h2 class="mira-section-title">최신 소식</h2>
-    <p class="mira-section-description">Camelus33의 개발 소식과 독서 관련 유용한 정보를 확인하세요</p>
-    
-    <div class="mira-posts">
-      {% for post in site.posts limit:3 %}
-      <div class="mira-post">
-        {% if post.image %}
-        <div class="mira-post-image">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-        </div>
+<!-- Recent Posts -->
+<section class="container">
+  <h2 class="category-title">Recent Articles</h2>
+  
+  <div class="post-list">
+    {% for post in site.posts limit:6 %}
+    <article class="post-card card">
+      <div class="post-card-image-container">
+        {% if post.category %}
+        <span class="post-card-category">{{ post.category }}</span>
         {% endif %}
-        <div class="mira-post-content">
-          <div class="mira-post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</div>
-          <h3 class="mira-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-          <p class="mira-post-excerpt">{{ post.excerpt }}</p>
-          <a href="{{ post.url | relative_url }}" class="mira-post-link">더 읽기</a>
+        {% if post.image %}
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-card-image">
+        {% else %}
+        <img src="{{ '/assets/images/default-post.jpg' | relative_url }}" alt="{{ post.title }}" class="post-card-image">
+        {% endif %}
+      </div>
+      <div class="post-card-content">
+        <div class="post-card-meta">
+          <span class="post-card-date">
+            <i class="fa-regular fa-calendar"></i> {{ post.date | date: "%b %d, %Y" }}
+          </span>
+          {% if post.read_time %}
+          <span class="post-card-read-time">{{ post.read_time }} min read</span>
+          {% else %}
+          <span class="post-card-read-time">{{ post.content | number_of_words | divided_by: 250 | plus: 1 }} min read</span>
+          {% endif %}
+        </div>
+        <h3 class="post-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+        <div class="post-card-author">
+          {% if post.author_image %}
+          <img src="{{ post.author_image | relative_url }}" alt="{{ post.author | default: site.author }}" class="post-card-author-avatar">
+          {% else %}
+          <img src="{{ '/assets/images/default-avatar.jpg' | relative_url }}" alt="{{ post.author | default: site.author }}" class="post-card-author-avatar">
+          {% endif %}
+          <span class="post-card-author-name">{{ post.author | default: site.author }}</span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  
+  {% if site.posts.size > 6 %}
+  <div class="text-center mt-8">
+    <a href="{{ '/blog' | relative_url }}" class="btn btn-outline-primary">View All Posts</a>
+  </div>
+  {% endif %}
+</section>
+
+<!-- Popular Topics -->
+<section class="container mt-12">
+  <h2 class="category-title">Popular Topics</h2>
+  
+  <div class="tag-cloud">
+    {% assign categories = site.posts | map: "category" | uniq %}
+    {% for category in categories %}
+      {% if category %}
+      <a href="{{ '/blog?category=' | append: category | relative_url }}" class="tag-cloud-item">{{ category }}</a>
+      {% endif %}
+    {% endfor %}
+    
+    {% assign tags = site.posts | map: "tags" | uniq %}
+    {% for tag in tags limit:10 %}
+      {% if tag %}
+      <a href="{{ '/blog?tag=' | append: tag | relative_url }}" class="tag-cloud-item">{{ tag }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Tutorials Section -->
+<section class="container mt-12">
+  <h2 class="category-title">Latest Tutorials</h2>
+  
+  <div class="post-list">
+    {% assign tutorials = site.posts | where: "layout", "tutorial" | limit: 3 %}
+    {% if tutorials.size > 0 %}
+      {% for tutorial in tutorials %}
+      <article class="post-card card">
+        <div class="post-card-image-container">
+          <span class="post-card-category">Tutorial</span>
+          {% if tutorial.image %}
+          <img src="{{ tutorial.image | relative_url }}" alt="{{ tutorial.title }}" class="post-card-image">
+          {% else %}
+          <img src="{{ '/assets/images/default-tutorial.jpg' | relative_url }}" alt="{{ tutorial.title }}" class="post-card-image">
+          {% endif %}
+        </div>
+        <div class="post-card-content">
+          <div class="post-card-meta">
+            <span class="post-card-date">
+              <i class="fa-regular fa-calendar"></i> {{ tutorial.date | date: "%b %d, %Y" }}
+            </span>
+            <span class="post-card-read-time">{{ tutorial.content | number_of_words | divided_by: 250 | plus: 1 }} min read</span>
+          </div>
+          <h3 class="post-card-title">
+            <a href="{{ tutorial.url | relative_url }}">{{ tutorial.title }}</a>
+          </h3>
+          <p class="post-card-excerpt">{{ tutorial.excerpt | strip_html | truncatewords: 25 }}</p>
+          <div class="post-card-author">
+            {% if tutorial.author_image %}
+            <img src="{{ tutorial.author_image | relative_url }}" alt="{{ tutorial.author | default: site.author }}" class="post-card-author-avatar">
+            {% else %}
+            <img src="{{ '/assets/images/default-avatar.jpg' | relative_url }}" alt="{{ tutorial.author | default: site.author }}" class="post-card-author-avatar">
+            {% endif %}
+            <span class="post-card-author-name">{{ tutorial.author | default: site.author }}</span>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    {% else %}
+      {% for i in (1..3) %}
+      <div class="post-card card">
+        <div class="post-card-content text-center py-4">
+          <p class="text-tertiary">No tutorials available yet. Stay tuned!</p>
         </div>
       </div>
       {% endfor %}
-    </div>
-    
-    <div class="mira-more">
-      <a href="/blog" class="mira-button secondary">모든 글 보기</a>
+    {% endif %}
+  </div>
+  
+  <div class="text-center mt-8">
+    <a href="{{ '/tutorials' | relative_url }}" class="btn btn-outline-primary">View All Tutorials</a>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="container mt-12">
+  <div class="card">
+    <div class="card-body text-center py-4">
+      <h2 class="card-title">Stay Updated</h2>
+      <p class="card-text mb-4">Get the latest articles, tutorials, and updates delivered straight to your inbox.</p>
+      <form class="newsletter-form max-w-md mx-auto">
+        <input type="email" class="form-control" placeholder="Your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="form-text mt-2">We respect your privacy. Unsubscribe at any time.</p>
     </div>
   </div>
 </section>
 
-<!-- CTA 섹션 -->
-<section class="mira-cta-section">
-  <div class="container">
-    <h2 class="mira-cta-title">함께 독서 습관을 만들어 보세요</h2>
-    <p class="mira-cta-description">Camelus33와 함께라면 독서가 일상의 즐거운 습관이 됩니다</p>
-    <a href="{{ page.cta_button_url | relative_url }}" class="mira-button primary">{{ page.cta_button_text }}</a>
-  </div>
-</section> 
+{{ content }} 

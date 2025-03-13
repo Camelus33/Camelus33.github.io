@@ -1,116 +1,152 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="{{ site.lang | default: 'ko' }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}Camelus33</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.ico">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- 한글 폰트 추가 -->
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans/packages/wanted-sans/fonts/webfonts/variable/complete/WantedSansVariable.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% else %}/assets/images/default/post-default.svg{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% else %}/assets/images/default/post-default.svg{% endif %}">
+  
+  {% if site.google_analytics %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
 </head>
-<body class="mira-style">
-  <!-- 고급 배경 요소 -->
-  <div class="page-background"></div>
-  
-  <!-- 미래형 배경 요소 추가 - 마우스 떨림 문제로 일부 요소 주석 처리 -->
-  <div class="digital-grid"></div>
-  <div class="futuristic-effect"></div>
-  <!-- <div class="hologram-effect"></div> -->
-  <div class="dot-grid"></div>
-  
-  <!-- 기존 배경 애니메이션 요소 - 마우스 떨림 문제로 비활성화 -->
-  <!--
-  <div class="mira-orb mira-orb-1"></div>
-  <div class="mira-orb mira-orb-2"></div>
-  <div class="mira-orb mira-orb-3"></div>
-  <div class="mira-orb mira-orb-4"></div>
-  
-  <div class="mira-line mira-line-1"></div>
-  <div class="mira-line mira-line-2"></div>
-  <div class="mira-line mira-line-3"></div>
-  
-  <div class="mira-rotating-ring mira-rotating-ring-1"></div>
-  <div class="mira-rotating-ring mira-rotating-ring-2"></div>
-  <div class="mira-rotating-ring mira-rotating-ring-3"></div>
-  -->
-  
-  <!-- 입자 효과도 비활성화 -->
-  <!-- <div class="particles-container" id="particles-js"></div> -->
-  
-  <header class="site-header">
-    <div class="container">
-      <div class="header-inner">
-        <a href="/" class="site-logo">Camelus33</a>
-        <nav class="site-nav">
-          <ul>
-            <li><a href="/">홈</a></li>
-            <li><a href="/blog">블로그</a></li>
-            <li><a href="/about">소개</a></li>
-            <li><a href="/contact" class="nav-cta">시작하기</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    {{ content }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">Camelus33</div>
-        <div class="footer-links">
-          <div class="footer-column">
-            <h4>사이트맵</h4>
-            <ul>
-              <li><a href="/">홈</a></li>
-              <li><a href="/blog">블로그</a></li>
-              <li><a href="/about">소개</a></li>
-              <li><a href="/contact">문의</a></li>
+<body>
+  <div class="site-container">
+    <header class="site-header">
+      <div class="container">
+        <div class="header-wrapper">
+          <a href="/" class="logo">
+            <img src="/assets/images/logo/logo.svg" alt="{{ site.title }}">
+          </a>
+          
+          <nav class="main-nav">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+              <span class="hamburger"></span>
+            </button>
+            
+            <ul class="nav-links">
+              <li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>홈</a></li>
+              <li><a href="/blog" {% if page.url contains '/blog' %}class="active"{% endif %}>블로그</a></li>
+              <li><a href="/about" {% if page.url == '/about' %}class="active"{% endif %}>소개</a></li>
+              <li><a href="/contact" {% if page.url == '/contact' %}class="active"{% endif %}>문의</a></li>
             </ul>
-          </div>
-          <div class="footer-column">
-            <h4>소셜 미디어</h4>
-            <div class="social-links">
-              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
+          </nav>
+          
+          <div class="header-actions">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+            <a href="#search" class="search-toggle" aria-label="Search">
+              <i class="fas fa-search"></i>
+            </a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2024 Camelus33. All rights reserved.</p>
+    </header>
+    
+    <main class="site-content">
+      {{ content }}
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/assets/images/logo/logo.svg" alt="{{ site.title }}">
+            <p>{{ site.description }}</p>
+          </div>
+          
+          <div class="footer-links">
+            <div class="footer-nav">
+              <h3>사이트맵</h3>
+              <ul>
+                <li><a href="/">홈</a></li>
+                <li><a href="/blog">블로그</a></li>
+                <li><a href="/about">소개</a></li>
+                <li><a href="/contact">문의</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-social">
+              <h3>소셜 미디어</h3>
+              <ul>
+                {% if site.github_username %}
+                <li><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
+                {% endif %}
+                {% if site.twitter_username %}
+                <li><a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a></li>
+                {% endif %}
+                {% if site.linkedin_username %}
+                <li><a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+          <p>Built with <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a></p>
+        </div>
+      </div>
+    </footer>
+    
+    <div id="search" class="search-overlay">
+      <div class="search-container">
+        <button class="search-close" aria-label="Close search">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="search-content">
+          <h2>검색</h2>
+          <form class="search-form">
+            <input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+          </form>
+          <div id="search-results"></div>
+        </div>
       </div>
     </div>
-  </footer>
-
-  <!-- 필요한 JavaScript 라이브러리 -->
-  <!-- particles.js 비활성화 -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-
-  <!-- 입자 효과 초기화 - 비활성화 -->
-  <!--
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-          // ... existing particles.js configuration ...
-        });
-      }
-    });
-  </script>
-  -->
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="/assets/js/main.js"></script>
 </body>
 </html> 

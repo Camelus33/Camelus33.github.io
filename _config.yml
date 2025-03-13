@@ -1,8 +1,10 @@
-title: Camelus33
-description: GPS 기반 독서몰입 타이머 앱 - 장소 인증과 제텔카스텐 메모법으로 독서 습관 형성
+title: Camelus33 Tech Blog
+description: 개발자를 위한 최신 기술 소식, 튜토리얼, 모범 사례 및 커리어 팁
 baseurl: ""
-url: "https://camelus33.github.io"
+url: "https://camelus33-nu.vercel.app"
 github_username: Camelus33
+twitter_username: Camelus33
+linkedin_username: Camelus33
 
 # Build settings
 markdown: kramdown
@@ -10,15 +12,36 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
 
 # Custom settings
 author: Camelus33 Team
 logo: /assets/images/logo/logo.svg
 lang: ko-KR
 
+# Pagination
+paginate: 9
+paginate_path: "/blog/page:num/"
+
+# Navigation
+nav_links:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Tutorials
+    url: /tutorials/
+  - title: About
+    url: /about/
+  - title: Contact
+    url: /contact/
+
 # Collections
 collections:
-  features:
+  tutorials:
+    output: true
+    permalink: /:collection/:name
+  authors:
     output: true
     permalink: /:collection/:name
 
@@ -32,10 +55,43 @@ defaults:
       author: "Camelus33 Team"
   - scope:
       path: ""
-      type: "features"
+      type: "tutorials"
     values:
-      layout: "feature"
+      layout: "tutorial"
+      author: "Camelus33 Team"
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
   - scope:
       path: ""
     values:
-      layout: "default" 
+      layout: "default"
+
+# SEO settings
+twitter:
+  username: Camelus33
+  card: summary_large_image
+logo: /assets/images/logo/logo.svg
+social:
+  name: Camelus33
+  links:
+    - https://twitter.com/Camelus33
+    - https://github.com/Camelus33
+    - https://linkedin.com/company/Camelus33
+
+# Disqus comments (uncomment to enable)
+# disqus_shortname: camelus33
+
+# Google Analytics (uncomment to enable)
+# google_analytics: UA-XXXXXXXX-X
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md 
