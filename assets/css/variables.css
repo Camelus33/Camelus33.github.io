@@ -210,4 +210,156 @@
   --code-block-radius: var(--radius-md);
   --prose-font-size: 1.0625rem;
   --prose-line-height: 1.75;
+  
+  /* 색상 */
+  --color-primary: #4F46E5;
+  --color-primary-dark: #4338CA;
+  --color-primary-light: #818CF8;
+  --color-secondary: #3B82F6;
+  --color-secondary-dark: #2563EB;
+  --color-secondary-light: #60A5FA;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  
+  /* 배경색 */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F9FAFB;
+  --color-bg-tertiary: #F3F4F6;
+  --color-bg-accent: #EEF2FF;
+  
+  /* 텍스트 색상 */
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-text-tertiary: #6B7280;
+  --color-text-quaternary: #9CA3AF;
+  --color-text-on-primary: #FFFFFF;
+  
+  /* 테두리 색상 */
+  --color-border-primary: #E5E7EB;
+  --color-border-secondary: #D1D5DB;
+  
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* 폰트 패밀리 */
+  --font-sans: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Consolas', 'Menlo', monospace;
+  
+  /* 폰트 크기 */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  
+  /* 폰트 두께 */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* 줄 높이 */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  
+  /* 간격 */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  
+  /* 테두리 둥글기 */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* 애니메이션 */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  
+  /* 배경 이미지 */
+  --bg-pattern: none; /* 배경 패턴 제거 */
+  
+  /* 신택스 하이라이팅 */
+  --syntax-text: #383A42;
+  --syntax-comment: #A0A1A7;
+  --syntax-keyword: #A626A4;
+  --syntax-string: #50A14F;
+  --syntax-number: #986801;
+  --syntax-function: #4078F2;
+  --syntax-operator: #0184BC;
+  --syntax-class: #C18401;
+  --syntax-tag: #E45649;
+  --syntax-attr: #50A14F;
+  --syntax-meta: #4078F2;
+  --syntax-background: #FAFAFA;
+  
+  /* 배경 이미지 설정 */
+  --bg-image: url('/assets/images/background.svg');
+  --bg-image-dark: url('/assets/images/background-dark.svg');
+}
+
+/* 다크 모드 변수 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #111827;
+    --color-bg-secondary: #1F2937;
+    --color-bg-tertiary: #374151;
+    --color-bg-accent: #312E81;
+    
+    --color-text-primary: #F9FAFB;
+    --color-text-secondary: #E5E7EB;
+    --color-text-tertiary: #D1D5DB;
+    --color-text-quaternary: #9CA3AF;
+    
+    --color-border-primary: #374151;
+    --color-border-secondary: #4B5563;
+    
+    /* 배경 이미지 - 다크 모드 */
+    --bg-pattern: none; /* 배경 패턴 제거 */
+    
+    /* 다크 모드 신택스 하이라이팅 */
+    --syntax-text: #ABB2BF;
+    --syntax-comment: #5C6370;
+    --syntax-keyword: #C678DD;
+    --syntax-string: #98C379;
+    --syntax-number: #D19A66;
+    --syntax-function: #61AFEF;
+    --syntax-operator: #56B6C2;
+    --syntax-class: #E6C07B;
+    --syntax-tag: #E06C75;
+    --syntax-attr: #98C379;
+    --syntax-meta: #61AFEF;
+    --syntax-background: #282C34;
+  }
 } 

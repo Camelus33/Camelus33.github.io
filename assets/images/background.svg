@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f1f5f9" />
+            <stop offset="100%" stop-color="#e2e8f0" />
+        </linearGradient>
+        <linearGradient id="gradientAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.1" />
+            <stop offset="100%" stop-color="#4F46E5" stop-opacity="0.05" />
+        </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#gradientBackground)" />
+    
+    <!-- Pattern of circles & geometric shapes -->
+    <circle cx="200" cy="200" r="100" fill="url(#gradientAccent)" />
+    <circle cx="1720" cy="880" r="150" fill="url(#gradientAccent)" />
+    <rect x="500" y="300" width="200" height="200" rx="20" fill="url(#gradientAccent)" />
+    <rect x="1200" y="500" width="150" height="150" rx="15" fill="url(#gradientAccent)" />
+    
+    <!-- Small accent features -->
+    <circle cx="300" cy="800" r="40" fill="#4F46E5" opacity="0.03" />
+    <circle cx="1600" cy="250" r="30" fill="#4F46E5" opacity="0.03" />
+    <circle cx="900" cy="900" r="50" fill="#4F46E5" opacity="0.03" />
+    <circle cx="1300" cy="150" r="25" fill="#4F46E5" opacity="0.03" />
+    
+    <!-- Grid pattern -->
+    <g opacity="0.3">
+        <line x1="0" y1="100" x2="1920" y2="100" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="0" y1="300" x2="1920" y2="300" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="0" y1="500" x2="1920" y2="500" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="0" y1="700" x2="1920" y2="700" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="0" y1="900" x2="1920" y2="900" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        
+        <line x1="100" y1="0" x2="100" y2="1080" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="500" y1="0" x2="500" y2="1080" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="900" y1="0" x2="900" y2="1080" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="1300" y1="0" x2="1300" y2="1080" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+        <line x1="1700" y1="0" x2="1700" y2="1080" stroke="#4F46E5" stroke-width="0.5" stroke-opacity="0.05" />
+    </g>
+</svg> 
